@@ -42,10 +42,6 @@
             this.MaxSizebtn = new System.Windows.Forms.Button();
             this.LoadFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.BasicDataText = new System.Windows.Forms.RichTextBox();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.DataLogText = new System.Windows.Forms.RichTextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -58,8 +54,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.panel12.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
@@ -230,61 +224,10 @@
             this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel14.Controls.Add(this.BasicDataText);
             this.panel14.Location = new System.Drawing.Point(27, 249);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(547, 43);
+            this.panel14.Size = new System.Drawing.Size(547, 185);
             this.panel14.TabIndex = 96;
-            // 
-            // BasicDataText
-            // 
-            this.BasicDataText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BasicDataText.BackColor = System.Drawing.SystemColors.Window;
-            this.BasicDataText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BasicDataText.Location = new System.Drawing.Point(-2, -1);
-            this.BasicDataText.Name = "BasicDataText";
-            this.BasicDataText.ReadOnly = true;
-            this.BasicDataText.Size = new System.Drawing.Size(547, 43);
-            this.BasicDataText.TabIndex = 81;
-            this.BasicDataText.Text = "";
-            // 
-            // panel13
-            // 
-            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.DataLogText);
-            this.panel13.Location = new System.Drawing.Point(27, 321);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(547, 114);
-            this.panel13.TabIndex = 97;
-            // 
-            // DataLogText
-            // 
-            this.DataLogText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataLogText.AutoWordSelection = true;
-            this.DataLogText.BackColor = System.Drawing.SystemColors.Window;
-            this.DataLogText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DataLogText.Location = new System.Drawing.Point(0, -1);
-            this.DataLogText.Name = "DataLogText";
-            this.DataLogText.ReadOnly = true;
-            this.DataLogText.Size = new System.Drawing.Size(546, 112);
-            this.DataLogText.TabIndex = 50;
-            this.DataLogText.Text = "";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(11, 303);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 15);
-            this.label5.TabIndex = 95;
-            this.label5.Text = "변경 값";
             // 
             // label4
             // 
@@ -420,8 +363,6 @@
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.ProgramName);
             this.Controls.Add(this.panel14);
-            this.Controls.Add(this.panel13);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel9);
@@ -438,8 +379,6 @@
             this.panel12.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -462,10 +401,6 @@
         private System.Windows.Forms.Button MaxSizebtn;
         private System.Windows.Forms.OpenFileDialog LoadFileDialog;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.RichTextBox BasicDataText;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.RichTextBox DataLogText;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel9;

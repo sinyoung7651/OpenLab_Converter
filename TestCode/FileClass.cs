@@ -100,7 +100,7 @@ namespace TestCode
 
                         for(int i=0;i<=15;i++)
                         {
-                            if (strs[i] == "\"+INF\"" || strs[i] == "\"-INF\"" || strs[i] == "\"OF\"")
+                            if (strs[i] == "\"+INF\"" || strs[i] == "\"-INF\"" || strs[i] == "OF")
                             {
                                 strs[i] = "NaN";
                             }
@@ -278,16 +278,21 @@ namespace TestCode
                                 //    refrig = "0";
                                 //else
                                 //    refrig = "1";
-                                if (double.TryParse(IE2, out double i) == true)
+                                //if (double.TryParse(FIE2, out double i) == true)
+                                //{
+                                //    refrig = "1";
+                                //}
+                                //else
+                                //{
+                                //    refrig = "0";
+                                //}
+                                if (FIE2 == "NaN")
                                 {
-                                    if (i > 0.1)
-                                    {
-                                        refrig = "1";
-                                    }
-                                    else
-                                    {
-                                        refrig = "0";
-                                    }
+                                    refrig = "0";
+                                }
+                                else
+                                {
+                                    refrig = "1";
                                 }
                                 break;
                             case ChoiceBtn.TV:

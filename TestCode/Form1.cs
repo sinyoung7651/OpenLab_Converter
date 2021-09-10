@@ -35,11 +35,6 @@ namespace TestCode
         {
             FileRead = ReadCSVFile();
             LoadFileText.Text = FileRead;
-            if (!string.IsNullOrEmpty(BasicDataText.Text))
-            {
-                BasicDataText.Text = "";
-                DataLogText.Text = "";
-            }
         }
 
         private void SaveFile_Click(object sender, EventArgs e)
