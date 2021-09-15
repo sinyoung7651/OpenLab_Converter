@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Dry = new System.Windows.Forms.RadioButton();
             this.Air = new System.Windows.Forms.RadioButton();
             this.Refrig = new System.Windows.Forms.RadioButton();
@@ -41,12 +44,6 @@
             this.MinSizebtn = new System.Windows.Forms.Button();
             this.MaxSizebtn = new System.Windows.Forms.Button();
             this.LoadFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.BasicDataText = new System.Windows.Forms.RichTextBox();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.DataLogText = new System.Windows.Forms.RichTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -56,19 +53,19 @@
             this.SaveFile = new System.Windows.Forms.Button();
             this.OpenLoad = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel12.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // Dry
             // 
             this.Dry.AutoSize = true;
             this.Dry.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Dry.Location = new System.Drawing.Point(13, 37);
+            this.Dry.Location = new System.Drawing.Point(161, 5);
             this.Dry.Name = "Dry";
             this.Dry.Size = new System.Drawing.Size(42, 19);
             this.Dry.TabIndex = 3;
@@ -120,7 +117,7 @@
             this.panel12.Controls.Add(this.START);
             this.panel12.Location = new System.Drawing.Point(27, 93);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(547, 128);
+            this.panel12.Size = new System.Drawing.Size(547, 46);
             this.panel12.TabIndex = 90;
             // 
             // panel7
@@ -134,14 +131,14 @@
             this.panel7.Controls.Add(this.Refrig);
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(382, 116);
+            this.panel7.Size = new System.Drawing.Size(382, 37);
             this.panel7.TabIndex = 73;
             // 
             // Vaccum
             // 
             this.Vaccum.AutoSize = true;
             this.Vaccum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Vaccum.Location = new System.Drawing.Point(57, 37);
+            this.Vaccum.Location = new System.Drawing.Point(209, 5);
             this.Vaccum.Name = "Vaccum";
             this.Vaccum.Size = new System.Drawing.Size(68, 19);
             this.Vaccum.TabIndex = 3;
@@ -156,9 +153,9 @@
             this.START.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.START.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.START.ForeColor = System.Drawing.Color.White;
-            this.START.Location = new System.Drawing.Point(402, 3);
+            this.START.Location = new System.Drawing.Point(391, 3);
             this.START.Name = "START";
-            this.START.Size = new System.Drawing.Size(136, 116);
+            this.START.Size = new System.Drawing.Size(147, 37);
             this.START.TabIndex = 11;
             this.START.Text = "START";
             this.START.UseVisualStyleBackColor = false;
@@ -224,77 +221,6 @@
             // LoadFileDialog
             // 
             this.LoadFileDialog.FileName = "openFileDialog1";
-            // 
-            // panel14
-            // 
-            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel14.Controls.Add(this.BasicDataText);
-            this.panel14.Location = new System.Drawing.Point(27, 249);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(547, 43);
-            this.panel14.TabIndex = 96;
-            // 
-            // BasicDataText
-            // 
-            this.BasicDataText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BasicDataText.BackColor = System.Drawing.SystemColors.Window;
-            this.BasicDataText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.BasicDataText.Location = new System.Drawing.Point(-2, -1);
-            this.BasicDataText.Name = "BasicDataText";
-            this.BasicDataText.ReadOnly = true;
-            this.BasicDataText.Size = new System.Drawing.Size(547, 43);
-            this.BasicDataText.TabIndex = 81;
-            this.BasicDataText.Text = "";
-            // 
-            // panel13
-            // 
-            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.DataLogText);
-            this.panel13.Location = new System.Drawing.Point(27, 321);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(547, 114);
-            this.panel13.TabIndex = 97;
-            // 
-            // DataLogText
-            // 
-            this.DataLogText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataLogText.AutoWordSelection = true;
-            this.DataLogText.BackColor = System.Drawing.SystemColors.Window;
-            this.DataLogText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DataLogText.Location = new System.Drawing.Point(0, -1);
-            this.DataLogText.Name = "DataLogText";
-            this.DataLogText.ReadOnly = true;
-            this.DataLogText.Size = new System.Drawing.Size(546, 112);
-            this.DataLogText.TabIndex = 50;
-            this.DataLogText.Text = "";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(11, 303);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 15);
-            this.label5.TabIndex = 95;
-            this.label5.Text = "변경 값";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(11, 231);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 15);
-            this.label4.TabIndex = 94;
-            this.label4.Text = "기본 값";
             // 
             // pictureBox1
             // 
@@ -411,18 +337,34 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(26, 152);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Data";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(548, 272);
+            this.chart1.TabIndex = 99;
+            this.chart1.Text = "chart1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 497);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.ProgramName);
-            this.Controls.Add(this.panel14);
-            this.Controls.Add(this.panel13);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.Version);
@@ -438,11 +380,10 @@
             this.panel12.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,12 +402,6 @@
         private System.Windows.Forms.Button MinSizebtn;
         private System.Windows.Forms.Button MaxSizebtn;
         private System.Windows.Forms.OpenFileDialog LoadFileDialog;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.RichTextBox BasicDataText;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.RichTextBox DataLogText;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label6;
@@ -477,6 +412,7 @@
         private System.Windows.Forms.Button OpenLoad;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton Vaccum;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }
 

@@ -35,11 +35,7 @@ namespace TestCode
         {
             FileRead = ReadCSVFile();
             LoadFileText.Text = FileRead;
-            if (!string.IsNullOrEmpty(BasicDataText.Text))
-            {
-                BasicDataText.Text = "";
-                DataLogText.Text = "";
-            }
+
         }
 
         private void SaveFile_Click(object sender, EventArgs e)
@@ -216,7 +212,7 @@ namespace TestCode
         {
             Run();
         }
-        Data[] data;
+        DataClass[] data;
         FileClass FC = new FileClass();
         private void Run()
         {
@@ -246,6 +242,23 @@ namespace TestCode
             //{
             //    DataLogText.AppendText(a.Number + "\t" + a.Date + "\t" + a.Time + "\t" + a.UE2 + "\t" + a.IE2 + "\t" + a.PE2 + "\t" + a.SE2 + "\t" + a.QE2 + "\t" + a.PFE2 + "\t" + a.DEGE2 + "\t" + a.FUE2 + "\t" + a.FIE2 + "\t" + a.UPlustpkE2 + "\t" + a.UMinuspkE2 + "\t" +a.UMinuspkE2 + "\t" + a.UMinuspkE2);
             //}
+            MadeChart(data);                       
+        }
+        private void MadeChart(DataClass[] data)
+        {
+            chart1.Series["Data"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+            chart1.Series["Data"].Points.Clear();
+            foreach (var a in data)
+            {
+                if (double.TryParse(a.IE2, out double doublea))
+                {
+                    chart1.Series["Data"].Points.Add(doublea);
+                }
+                else
+                {
+                    chart1.Series["Data"].Points.Add(0);
+                }
+            }
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -255,16 +268,27 @@ namespace TestCode
 
             if (sfd.ShowDialog() != DialogResult.OK)
                 return;
-            Export(sfd.FileName);
+            if(MessageBox.Show("저장합니다","저장",MessageBoxButtons.YesNo)== DialogResult.Yes)
+            {
+                Export(sfd.FileName);
+            }else
+            {
+
+            }
+            
         }
         private void Export(string filepath)
         {
-            FC.Export(filepath);
-           
+            FC.Export(filepath);           
         }
         private void InfoExport(string filepath)
         {
             FC.InfoExport(filepath);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

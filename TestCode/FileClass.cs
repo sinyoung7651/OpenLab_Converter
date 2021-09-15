@@ -12,40 +12,12 @@ namespace TestCode
     {
         AIR,REFRIG,TV,DRY,VACCUM
     }
-    public class Data
-    {
-        public string Number { get; set; }
-        public string Date { get; set; }
-        public string Time { get; set; }
-        public string UE2 { get; set; }
-        public string IE2 { get; set; }
-        public string PE2 { get; set; }
-        public string SE2 { get; set; }
-        public string QE2 { get; set; }
-        public string PFE2 { get; set; }
-        public string DEGE2 { get; set; }
-        public string FUE2 { get; set; }
-        public string FIE2 { get; set; }
-        public string UPlustpkE2 { get; set; }
-        public string UMinuspkE2 { get; set; }
-        public string IPluspkE2 { get; set; }
-        public string IMinusE2 { get; set; }
-        public string air { get; set; }
-        public string refrig { get; set; }
-        public string tv { get; set; }
-        public string dry { get; set; }
-        public string vacuum { get; set; }
-        public string print()
-        {
-            return Number + "\t" + Date + "\t" + Time + "\t" + UE2 + "\t" + IE2 + "\t" + PE2 + "\t" + SE2 + "\t" + QE2 + "\t" + PFE2 + "\t" + DEGE2 + "\t" + FUE2 + "\t" + FIE2 + "\t" + UPlustpkE2 + "\t" + UMinuspkE2 + "\t" + UMinuspkE2 + "\t" + UMinuspkE2;
-        }
-    }
     public class FileClass
     {
         StreamReader FileRead;
         List<string> datas;
-        public Data[] Printdata { get; set; }
-        public Data TitleData { get; set; }
+        public DataClass[] Printdata { get; set; }
+        public DataClass TitleData { get; set; }
 
         public string Number { get; set; }
         public string Date { get; set; }
@@ -70,10 +42,10 @@ namespace TestCode
         public string vacuum { get; set; }
         public ChoiceBtn Choice { get; set; }
 
-        public Data[] ReadFile(string file)
+        public DataClass[] ReadFile(string file)
         {
             int count = 0;
-            List<Data> listdata = new List<Data>();
+            List<DataClass> listdata = new List<DataClass>();
             datas = new List<string>();
             using (FileRead = new StreamReader(file, Encoding.Default))
             {
@@ -100,7 +72,7 @@ namespace TestCode
 
                         for(int i=0;i<=15;i++)
                         {
-                            if (strs[i] == "\"+INF\"" || strs[i] == "\"-INF\"" || strs[i] == "\"OF\"")
+                            if (strs[i] == "\"+INF\"" || strs[i] == "\"-INF\"" || strs[i] == "OF")
                             {
                                 strs[i] = "NaN";
                             }
@@ -131,129 +103,12 @@ namespace TestCode
                                 throw new Exception("데이터 이상");
 
                             // OutputRecord의 시간과 PV제목 지정
-                            TitleData = new Data() { Number = Number, Date = Date, Time = Time, UE2 = UE2, IE2 = IE2, PE2 = PE2, SE2 = SE2, QE2 = QE2, PFE2 = PFE2, DEGE2 = DEGE2, FUE2 = FUE2, FIE2 = FIE2, UPlustpkE2 = UPlustpkE2, UMinuspkE2 = UMinuspkE2, IPluspkE2 = IPluspkE2, IMinusE2 = IMinusE2, air = "air", refrig = "refrig", tv = "tv", dry = "dry", vacuum = "vaccum" };
+                            TitleData = new DataClass() { Number = Number, Date = Date, Time = Time, UE2 = UE2, IE2 = IE2, PE2 = PE2, SE2 = SE2, QE2 = QE2, PFE2 = PFE2, DEGE2 = DEGE2, FUE2 = FUE2, FIE2 = FIE2, UPlustpkE2 = UPlustpkE2, UMinuspkE2 = UMinuspkE2, IPluspkE2 = IPluspkE2, IMinusE2 = IMinusE2, air = "air", refrig = "refrig", tv = "tv", dry = "dry", vacuum = "vaccum" };
                             count++;
                             continue;
 
                         }
-                        //if (double.TryParse(Number, out double number) == false)
-                        //{
-                        //    if (Number == "=+inf" || Number == "=-inf" || Number == "of")
-                        //    {
-                        //        Number = "NaN";
-                        //    }
-
-                        //}
-                        //if (DateTime.TryParse(Date, out DateTime date) == false)
-                        //{
-                        //    if (Date == "=+inf" || Date == "=-inf" || Date == "of")
-                        //    {
-                        //        Date = "NaN";
-                        //    }
-                        //}
-                        //if (DateTime.TryParse(Time, out DateTime time) == false)
-                        //{
-                        //    if (Time == "=+inf" || Time == "=-inf" || Time == "of")
-                        //    {
-                        //        Time = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(UE2, out double ue2) == false)
-                        //{
-                        //    if (UE2 == "=+inf" || UE2 == "=-inf" || UE2 == "of")
-                        //    {
-                        //        UE2 = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(IE2, out double ie2) == false)
-                        //{
-                        //    if (IE2 == "=+inf" || IE2 == "=-inf" || IE2 == "of")
-                        //    {
-                        //        IE2 = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(PE2, out double pe2) == false)
-                        //{
-                        //    if (PE2 == "=+inf" || PE2 == "=-inf" || PE2 == "of")
-                        //    {
-                        //        PE2 = "NaN";
-                        //    }
-
-                        //}
-                        //if (double.TryParse(SE2, out double se2) == false)
-                        //{
-                        //    if (SE2 == "=+inf" || SE2 == "=-inf" || SE2 == "of")
-                        //    {
-                        //        SE2 = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(QE2, out double qe2) == false)
-                        //{
-                        //    if (QE2 == "=+inf" || QE2 == "=-inf" || QE2 == "of")
-                        //    {
-                        //        QE2 = "NaN";
-                        //    }
-                        //}
-
-                        //if (double.TryParse(PFE2, out double pfe2) == false)
-                        //{
-
-                        //    if (PFE2 == "\"+INF\"" || PFE2 == "\"-INF\"" || PFE2 == "\"of\"")
-                        //    {
-                        //        PFE2 = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(DEGE2, out double dege2) == false)
-                        //{
-                        //    if (DEGE2 == "\"+INF\"" || DEGE2 == "\"-INF\"" || DEGE2 == "\"of\"")
-                        //    {
-                        //        DEGE2 = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(UMinuspkE2, out double uminuspke2) == false)
-                        //{
-                        //    if (UMinuspkE2 == "\"+INF\"" || UMinuspkE2 == "\"-INF\"" || UMinuspkE2 == "\"of\"")
-                        //    {
-                        //        UMinuspkE2 = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(IMinusE2, out double iminuse2) == false)
-                        //{
-                        //    if (IMinusE2 == "\"+INF\"" || IMinusE2 == "\"-INF\"" || IMinusE2 == "\"of\"")
-                        //    {
-                        //        IMinusE2 = "NaN";
-                        //    }
-
-                        //}
-                        //if (double.TryParse(FUE2, out double fue2) == false)
-                        //{
-                        //    if (FUE2 == "\"+INF\"" || FUE2 == "\"-INF\"" || FUE2 == "\"of\"")
-                        //    {
-                        //        FUE2 = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(UPlustpkE2, out double upluspke2) == false)
-                        //{
-                        //    if (UPlustpkE2 == "\"+INF\"" || UPlustpkE2 == "\"-INF\"" || UPlustpkE2 == "\"of\"")
-                        //    {
-                        //        UPlustpkE2 = "NaN";
-                        //    }
-                        //}
-                        //if (double.TryParse(IPluspkE2, out double ipluspke2) == false)
-                        //{
-                        //    if (IPluspkE2 == "\"+INF\"" || IPluspkE2 == "\"-INF\"" || IPluspkE2 == "\"of\"")
-                        //    {
-                        //        IPluspkE2 = "NaN";
-                        //    }
-                        //}
-
-                        //if (double.TryParse(FIE2, out double fie2) == false)
-                        //{
-                        //    if (FIE2 == "\"+INF\"" || FIE2 == "\"-INF\"" || FIE2 == "\"of\"")
-                        //    {
-                        //        FIE2 = "NaN";
-                        //    }
-                        //}
+                       
                         switch (Choice)
                         {
                             case ChoiceBtn.AIR:
@@ -262,12 +117,35 @@ namespace TestCode
                                 refrig = "0";
                                 vacuum = "0";
                                 tv = "0";
+                                if(double.TryParse(IE2,out double convertIE2))
+                                {
+                                    if(convertIE2 > 0.06)
+                                    {
+                                        air = "1";
+                                    }
+                                    else
+                                    {
+                                        air = "0";
+                                    }
+                                }
                                 break;
                             case ChoiceBtn.DRY:
                                 air = "0";                                
                                 refrig = "0";
                                 vacuum = "0";
                                 tv = "0";
+                                if (double.TryParse(IE2, out double conIE2))
+                                {
+                                    if (conIE2 > 0.1)
+                                    {
+                                        dry = "1";
+                                    }
+                                    else
+                                    {
+                                        dry = "0";
+                                    }
+                                }
+
                                 break;
                             case ChoiceBtn.REFRIG:
                                 air = "0";
@@ -278,16 +156,13 @@ namespace TestCode
                                 //    refrig = "0";
                                 //else
                                 //    refrig = "1";
-                                if (double.TryParse(IE2, out double i) == true)
+                                if (FIE2 == "NaN")
                                 {
-                                    if (i > 0.1)
-                                    {
-                                        refrig = "1";
-                                    }
-                                    else
-                                    {
-                                        refrig = "0";
-                                    }
+                                    refrig = "0";
+                                }
+                                else
+                                {
+                                    refrig = "1";
                                 }
                                 break;
                             case ChoiceBtn.TV:
@@ -295,16 +170,13 @@ namespace TestCode
                                 dry = "0";
                                 refrig = "0";
                                 vacuum = "0";
-                                if (double.TryParse(IE2, out double a) == true)
+                                if(double.Parse(PE2)>=5)
                                 {
-                                    if (a > 0.1)
-                                    {
-                                        tv = "1";
-                                    }
-                                    else
-                                    {
-                                        tv = "0";
-                                    }
+                                    tv = "1";
+                                }
+                                else
+                                {
+                                    tv = "0";
                                 }
                                 break;
                             case ChoiceBtn.VACCUM:
@@ -312,11 +184,61 @@ namespace TestCode
                                 dry = "0";
                                 refrig = "0";
                                 tv = "0";
+                                //if (FIE2 == "NaN" && !double.TryParse(IE2, out double IE2double) && double.Parse(IE2) == 0)
+                                //{
+                                //    vacuum = "0";
+                                //}
+                                //else
+                                //{
+                                //    vacuum = "1";
+                                //}
+                                if (IE2 != "NaN") 
+                                {
+                                    if (double.Parse(IE2)>0)
+                                    {
+                                        vacuum = "1";
+                                    }
+                                    else
+                                    {
+                                        if (FUE2 == "NaN")
+                                        {
+                                            vacuum = "1";
+                                        }
+                                        else
+                                        {
+                                            vacuum = "0";
+                                        }
+                                    }
+                                }else
+                                {
+                                    //if(FIE2!="NaN")
+                                    //{
+                                        vacuum = "1";
+                                    //}else
+                                    //{
+                                    //    vacuum = "0";
+                                    //}
+                                }
+                                //if ((double.Parse(IE2) > 0 || IE2 != "NaN") && FIE2 != "NaN" )
+                                //{
+                                //    vacuum = "1";
+                                //}else
+                                //{
+                                //    vacuum = "0";
+                                //}
+                                //if (FIE2 == "NaN" || IE2 == "NaN"|| double.Parse(IE2) == 0)
+                                //{
+                                //    vacuum = "0";
+                                //}
+                                //else
+                                //{
+                                //    vacuum = "1";
+                                //}
                                 break;
 
                         }
 
-                        listdata.Add(new Data() { Number = Number, Date = Date, Time = Time, UE2 = UE2, IE2 = IE2, PE2 = PE2, SE2 = SE2, QE2 = QE2, PFE2 = PFE2, DEGE2 = DEGE2, FUE2 = FUE2, FIE2 = FIE2, UPlustpkE2 = UPlustpkE2, UMinuspkE2 = UMinuspkE2, IPluspkE2 = IPluspkE2, IMinusE2 = IMinusE2, air = air, refrig = refrig, tv = tv, dry = dry, vacuum = vacuum });
+                        listdata.Add(new DataClass() { Number = Number, Date = Date, Time = Time, UE2 = UE2, IE2 = IE2, PE2 = PE2, SE2 = SE2, QE2 = QE2, PFE2 = PFE2, DEGE2 = DEGE2, FUE2 = FUE2, FIE2 = FIE2, UPlustpkE2 = UPlustpkE2, UMinuspkE2 = UMinuspkE2, IPluspkE2 = IPluspkE2, IMinusE2 = IMinusE2, air = air, refrig = refrig, tv = tv, dry = dry, vacuum = vacuum });
 
 
                         Printdata = listdata.ToArray();
@@ -328,8 +250,7 @@ namespace TestCode
         public void Export(string filepath)
         {
             using (var sw = new StreamWriter(filepath, false, Encoding.Default))
-            {
-            
+            {            
                 //타이틀 출력
                 sw.WriteLine($"{TitleData.Number},{ TitleData.Date},{ TitleData.Time},{ TitleData.UE2},{ TitleData.IE2},{ TitleData.PE2},{ TitleData.SE2},{ TitleData.QE2},{ TitleData.PFE2},{ TitleData.DEGE2},{ TitleData.FUE2 },{ TitleData.FIE2 },{ TitleData.UPlustpkE2 },{ TitleData.UMinuspkE2 },{ TitleData.IPluspkE2 },{ TitleData.IMinusE2 },{ TitleData.air},{ TitleData.refrig},{ TitleData.tv },{ TitleData.dry },{ TitleData.vacuum}");
                 //데이터 출력
