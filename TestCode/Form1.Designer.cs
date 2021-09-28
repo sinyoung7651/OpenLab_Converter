@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.Dry = new System.Windows.Forms.RadioButton();
-            this.Air = new System.Windows.Forms.RadioButton();
-            this.Refrig = new System.Windows.Forms.RadioButton();
-            this.TV = new System.Windows.Forms.RadioButton();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.Vaccum = new System.Windows.Forms.RadioButton();
+            this.VacuumCheck = new System.Windows.Forms.CheckBox();
+            this.AirCheck = new System.Windows.Forms.CheckBox();
+            this.DryCheck = new System.Windows.Forms.CheckBox();
+            this.RefrigCheck = new System.Windows.Forms.CheckBox();
+            this.TVCheck = new System.Windows.Forms.CheckBox();
             this.START = new System.Windows.Forms.Button();
             this.ProgramName = new System.Windows.Forms.Label();
             this.Closebtn = new System.Windows.Forms.Button();
@@ -54,60 +53,24 @@
             this.OpenLoad = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.PE2 = new System.Windows.Forms.CheckBox();
+            this.IE2 = new System.Windows.Forms.CheckBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Box5 = new System.Windows.Forms.ComboBox();
+            this.Box4 = new System.Windows.Forms.ComboBox();
+            this.Box3 = new System.Windows.Forms.ComboBox();
+            this.Box2 = new System.Windows.Forms.ComboBox();
+            this.Box1 = new System.Windows.Forms.ComboBox();
             this.panel12.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Dry
-            // 
-            this.Dry.AutoSize = true;
-            this.Dry.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Dry.Location = new System.Drawing.Point(161, 5);
-            this.Dry.Name = "Dry";
-            this.Dry.Size = new System.Drawing.Size(42, 19);
-            this.Dry.TabIndex = 3;
-            this.Dry.TabStop = true;
-            this.Dry.Text = "dry";
-            this.Dry.UseVisualStyleBackColor = true;
-            // 
-            // Air
-            // 
-            this.Air.AutoSize = true;
-            this.Air.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Air.Location = new System.Drawing.Point(13, 5);
-            this.Air.Name = "Air";
-            this.Air.Size = new System.Drawing.Size(38, 19);
-            this.Air.TabIndex = 0;
-            this.Air.TabStop = true;
-            this.Air.Text = "air";
-            this.Air.UseVisualStyleBackColor = true;
-            // 
-            // Refrig
-            // 
-            this.Refrig.AutoSize = true;
-            this.Refrig.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Refrig.Location = new System.Drawing.Point(57, 5);
-            this.Refrig.Name = "Refrig";
-            this.Refrig.Size = new System.Drawing.Size(53, 19);
-            this.Refrig.TabIndex = 1;
-            this.Refrig.TabStop = true;
-            this.Refrig.Text = "refrig";
-            this.Refrig.UseVisualStyleBackColor = true;
-            // 
-            // TV
-            // 
-            this.TV.AutoSize = true;
-            this.TV.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.TV.Location = new System.Drawing.Point(116, 5);
-            this.TV.Name = "TV";
-            this.TV.Size = new System.Drawing.Size(39, 19);
-            this.TV.TabIndex = 2;
-            this.TV.TabStop = true;
-            this.TV.Text = "TV";
-            this.TV.UseVisualStyleBackColor = true;
             // 
             // panel12
             // 
@@ -124,27 +87,65 @@
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.TV);
-            this.panel7.Controls.Add(this.Vaccum);
-            this.panel7.Controls.Add(this.Dry);
-            this.panel7.Controls.Add(this.Air);
-            this.panel7.Controls.Add(this.Refrig);
+            this.panel7.Controls.Add(this.VacuumCheck);
+            this.panel7.Controls.Add(this.AirCheck);
+            this.panel7.Controls.Add(this.DryCheck);
+            this.panel7.Controls.Add(this.RefrigCheck);
+            this.panel7.Controls.Add(this.TVCheck);
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(382, 37);
             this.panel7.TabIndex = 73;
             // 
-            // Vaccum
+            // VacuumCheck
             // 
-            this.Vaccum.AutoSize = true;
-            this.Vaccum.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Vaccum.Location = new System.Drawing.Point(209, 5);
-            this.Vaccum.Name = "Vaccum";
-            this.Vaccum.Size = new System.Drawing.Size(68, 19);
-            this.Vaccum.TabIndex = 3;
-            this.Vaccum.TabStop = true;
-            this.Vaccum.Text = "vacuum";
-            this.Vaccum.UseVisualStyleBackColor = true;
+            this.VacuumCheck.AutoSize = true;
+            this.VacuumCheck.Location = new System.Drawing.Point(225, 11);
+            this.VacuumCheck.Name = "VacuumCheck";
+            this.VacuumCheck.Size = new System.Drawing.Size(71, 16);
+            this.VacuumCheck.TabIndex = 101;
+            this.VacuumCheck.Text = "Vacuum";
+            this.VacuumCheck.UseVisualStyleBackColor = true;
+            // 
+            // AirCheck
+            // 
+            this.AirCheck.AutoSize = true;
+            this.AirCheck.Location = new System.Drawing.Point(19, 11);
+            this.AirCheck.Name = "AirCheck";
+            this.AirCheck.Size = new System.Drawing.Size(39, 16);
+            this.AirCheck.TabIndex = 101;
+            this.AirCheck.Text = "Air";
+            this.AirCheck.UseVisualStyleBackColor = true;
+            // 
+            // DryCheck
+            // 
+            this.DryCheck.AutoSize = true;
+            this.DryCheck.Location = new System.Drawing.Point(176, 11);
+            this.DryCheck.Name = "DryCheck";
+            this.DryCheck.Size = new System.Drawing.Size(43, 16);
+            this.DryCheck.TabIndex = 101;
+            this.DryCheck.Text = "Dry";
+            this.DryCheck.UseVisualStyleBackColor = true;
+            // 
+            // RefrigCheck
+            // 
+            this.RefrigCheck.AutoSize = true;
+            this.RefrigCheck.Location = new System.Drawing.Point(64, 11);
+            this.RefrigCheck.Name = "RefrigCheck";
+            this.RefrigCheck.Size = new System.Drawing.Size(56, 16);
+            this.RefrigCheck.TabIndex = 101;
+            this.RefrigCheck.Text = "Refrig";
+            this.RefrigCheck.UseVisualStyleBackColor = true;
+            // 
+            // TVCheck
+            // 
+            this.TVCheck.AutoSize = true;
+            this.TVCheck.Location = new System.Drawing.Point(126, 11);
+            this.TVCheck.Name = "TVCheck";
+            this.TVCheck.Size = new System.Drawing.Size(40, 16);
+            this.TVCheck.TabIndex = 101;
+            this.TVCheck.Text = "TV";
+            this.TVCheck.UseVisualStyleBackColor = true;
             // 
             // START
             // 
@@ -166,7 +167,7 @@
             this.ProgramName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ProgramName.AutoSize = true;
             this.ProgramName.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.ProgramName.Location = new System.Drawing.Point(160, 455);
+            this.ProgramName.Location = new System.Drawing.Point(160, 509);
             this.ProgramName.Name = "ProgramName";
             this.ProgramName.Size = new System.Drawing.Size(50, 20);
             this.ProgramName.TabIndex = 93;
@@ -225,7 +226,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.Location = new System.Drawing.Point(27, 440);
+            this.pictureBox1.Location = new System.Drawing.Point(27, 494);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(121, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -264,7 +265,7 @@
             this.Version.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Version.AutoSize = true;
             this.Version.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Version.Location = new System.Drawing.Point(249, 477);
+            this.Version.Location = new System.Drawing.Point(249, 504);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(39, 15);
             this.Version.TabIndex = 92;
@@ -303,7 +304,7 @@
             this.SaveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveFile.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.SaveFile.ForeColor = System.Drawing.Color.White;
-            this.SaveFile.Location = new System.Drawing.Point(475, 441);
+            this.SaveFile.Location = new System.Drawing.Point(475, 495);
             this.SaveFile.Name = "SaveFile";
             this.SaveFile.Size = new System.Drawing.Size(99, 46);
             this.SaveFile.TabIndex = 87;
@@ -329,7 +330,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(332, 441);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(328, 492);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 49);
             this.button1.TabIndex = 98;
@@ -342,25 +344,121 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(26, 152);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(26, 188);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Data";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(548, 272);
+            this.chart1.Size = new System.Drawing.Size(565, 274);
             this.chart1.TabIndex = 99;
             this.chart1.Text = "chart1";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(0, 159);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(96, 20);
+            this.comboBox1.TabIndex = 100;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.PE2);
+            this.panel2.Controls.Add(this.IE2);
+            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Location = new System.Drawing.Point(478, 228);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(96, 191);
+            this.panel2.TabIndex = 101;
+            // 
+            // PE2
+            // 
+            this.PE2.AutoSize = true;
+            this.PE2.Location = new System.Drawing.Point(7, 25);
+            this.PE2.Name = "PE2";
+            this.PE2.Size = new System.Drawing.Size(86, 16);
+            this.PE2.TabIndex = 103;
+            this.PE2.Text = "전력(P-E2)";
+            this.PE2.UseVisualStyleBackColor = true;
+            this.PE2.CheckedChanged += new System.EventHandler(this.PE2_CheckedChanged);
+            // 
+            // IE2
+            // 
+            this.IE2.AutoSize = true;
+            this.IE2.Location = new System.Drawing.Point(7, 3);
+            this.IE2.Name = "IE2";
+            this.IE2.Size = new System.Drawing.Size(81, 16);
+            this.IE2.TabIndex = 103;
+            this.IE2.Text = "전류(I-E2)";
+            this.IE2.UseVisualStyleBackColor = true;
+            this.IE2.CheckedChanged += new System.EventHandler(this.IE2_CheckedChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Box5);
+            this.panel3.Controls.Add(this.Box4);
+            this.panel3.Controls.Add(this.Box3);
+            this.panel3.Controls.Add(this.Box2);
+            this.panel3.Controls.Add(this.Box1);
+            this.panel3.Location = new System.Drawing.Point(31, 145);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(467, 37);
+            this.panel3.TabIndex = 102;
+            // 
+            // Box5
+            // 
+            this.Box5.FormattingEnabled = true;
+            this.Box5.Location = new System.Drawing.Point(341, 3);
+            this.Box5.Name = "Box5";
+            this.Box5.Size = new System.Drawing.Size(72, 20);
+            this.Box5.TabIndex = 0;
+            // 
+            // Box4
+            // 
+            this.Box4.FormattingEnabled = true;
+            this.Box4.Location = new System.Drawing.Point(263, 3);
+            this.Box4.Name = "Box4";
+            this.Box4.Size = new System.Drawing.Size(72, 20);
+            this.Box4.TabIndex = 0;
+            this.Box4.SelectedIndexChanged += new System.EventHandler(this.Box4_SelectedIndexChanged);
+            // 
+            // Box3
+            // 
+            this.Box3.FormattingEnabled = true;
+            this.Box3.Location = new System.Drawing.Point(185, 3);
+            this.Box3.Name = "Box3";
+            this.Box3.Size = new System.Drawing.Size(72, 20);
+            this.Box3.TabIndex = 0;
+            this.Box3.SelectedIndexChanged += new System.EventHandler(this.Box3_SelectedIndexChanged);
+            // 
+            // Box2
+            // 
+            this.Box2.FormattingEnabled = true;
+            this.Box2.Location = new System.Drawing.Point(101, 3);
+            this.Box2.Name = "Box2";
+            this.Box2.Size = new System.Drawing.Size(78, 20);
+            this.Box2.TabIndex = 0;
+            this.Box2.SelectedIndexChanged += new System.EventHandler(this.Box2_SelectedIndexChanged);
+            // 
+            // Box1
+            // 
+            this.Box1.FormattingEnabled = true;
+            this.Box1.Location = new System.Drawing.Point(20, 3);
+            this.Box1.Name = "Box1";
+            this.Box1.Size = new System.Drawing.Size(75, 20);
+            this.Box1.TabIndex = 0;
+            this.Box1.SelectedIndexChanged += new System.EventHandler(this.Box1_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 497);
+            this.ClientSize = new System.Drawing.Size(603, 551);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel12);
@@ -384,16 +482,15 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.RadioButton Dry;
-        private System.Windows.Forms.RadioButton Air;
-        private System.Windows.Forms.RadioButton Refrig;
-        private System.Windows.Forms.RadioButton TV;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button START;
@@ -411,8 +508,22 @@
         private System.Windows.Forms.Button SaveFile;
         private System.Windows.Forms.Button OpenLoad;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.RadioButton Vaccum;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox AirCheck;
+        private System.Windows.Forms.CheckBox RefrigCheck;
+        private System.Windows.Forms.CheckBox TVCheck;
+        private System.Windows.Forms.CheckBox DryCheck;
+        private System.Windows.Forms.CheckBox VacuumCheck;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ComboBox Box5;
+        private System.Windows.Forms.ComboBox Box4;
+        private System.Windows.Forms.ComboBox Box3;
+        private System.Windows.Forms.ComboBox Box2;
+        private System.Windows.Forms.ComboBox Box1;
+        private System.Windows.Forms.CheckBox PE2;
+        private System.Windows.Forms.CheckBox IE2;
     }
 }
 

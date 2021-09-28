@@ -10,12 +10,60 @@ namespace TestCode
 {
     public enum ChoiceBtn
     {
-        AIR,REFRIG,TV,DRY,VACCUM
+
+
+        AIR,
+        AirRefrig, AirTv, AirDry, AirVaccum,
+        AirRefrigTv,AirRefrigDry,AirRefrigVaccum, AirTVDry, AirTvVaccuum, AirTVRefrig, AirDryVacuum, AirDryTV, AirDryRefrig,
+        AirRefrigTvDry,AirRefrigTvVaccum, AirRefrigDryTV, AirRefrigDryVacuum, AirRefrigVacuumTV,AirRefrigVacuumDry, 
+        AirTVRefrigDry,AirTVRefrigVacuum,AirTVDryVacuum,AirTVDryRefrig,AirTVVacuumRefrig,AirTVVacuumDry,
+        AirDryRefrigTV,AirDryRefrigVacuum,AirDryTVRefrig,AirDryTVVacuum,AirDryVaccumTV,AirDryVacuumRefrig,
+        AirVacuumRefrigTV,AirVacuumRefrigDry,AirVacuumTVDry, AirVacuumTVRefrig, AirVacuumDryRefrig, AirVacuumDryTV,
+
+
+        REFRIG,
+        RefrigAir, RefrigTv, RefrigDry, RefrigVaccum,
+        RefrigAirTv, RefrigAirDry, RefrigAirVaccum, RefrigTVDry, RefrigTvVaccuum, RefrigTVAir, RefrigDryVacuum, RefrigDryTV, RefrigDryAir,
+        RefrigAirTvDry, RefrigAirTvVaccum, RefrigAirDryTV, RefrigAirDryVacuum, RefrigAirVacuumTV, RefrigAirVacuumDry,
+        RefrigTVAirDry, RefrigTVAirVacuum, RefrigTVDryVacuum, RefrigTVDryAir, RefrigTVVacuumAir, RefrigTVVacuumDry,
+        RefrigDryAirTV, RefrigDryAirVacuum, RefrigDryTVAir, RefrigDryTVVacuum, RefrigDryVaccumTV, RefrigDryVacuumAir,
+        RefrigVacuumAirTV, RefrigVacuumAirDry, RefrigVacuumTVDry, RefrigVacuumTVAir, RefrigVacuumDryAir, RefrigVacuumDryTV,
+
+
+        TV,
+        TVAir, TVRefrig, TVDry, TVVaccum,
+        TVAirRefrig, TVAirDry, TVAirVaccum, TVRefrigDry, TVRefrigVaccuum, TVRefrigAir, TVDryVacuum, TVDryRefrig, TVDryAir,
+        TVAirRefrigDry, TVAirRefrigVaccum, TVAirDryRefrig, TVAirDryVacuum, TVAirVacuumRefrig, TVAirVacuumDry,
+        TVRefrigAirDry, TVRefrigAirVacuum, TVRefrigDryVacuum, TVRefrigDryAir, TVRefrigVacuumAir, TVRefrigVacuumDry,
+        TVDryAirRefrig, TVDryAirVacuum, TVDryRefrigAir, TVDryRefrigVacuum, TVDryVaccumRefrig, TVDryVacuumAir,
+        TVVacuumAirRefrig, TVVacuumAirDry, TVVacuumRefrigDry, TVVacuumRefrigAir, TVVacuumDryAir, TVVacuumDryRefrig,
+
+        DRY,
+        DryAir, DryRefrig, DryTV, DryVaccum,
+        DryAirRefrig, DryAirTV, DryAirVaccum, DryRefrigTV, DryRefrigVaccuum, DryRefrigAir, DryTVVacuum, DryTVRefrig, DryTVAir,
+        DryAirRefrigTV, DryAirRefrigVaccum, DryAirTVRefrig, DryAirTVVacuum, DryAirVacuumRefrig, DryAirVacuumTV,
+        DryRefrigAirTV, DryRefrigAirVacuum, DryRefrigTVVacuum, DryRefrigTVAir, DryRefrigVacuumAir, DryRefrigVacuumTV,
+        DryTVAirRefrig, DryTVAirVacuum, DryTVRefrigAir, DryTVRefrigVacuum, DryTVVaccumRefrig, DryTVVacuumAir,
+        DryVacuumAirRefrig, DryVacuumAirTV, DryVacuumRefrigTV, DryVacuumRefrigAir, DryVacuumTVAir, DryVacuumTVRefrig,
+
+
+        VACUUM,
+        VacuumAir, VacuumRefrig, VacuumTV, VacuumDry,
+        VacuumAirRefrig, VacuumAirTV, VacuumAirVaccum, VacuumRefrigTV, VacuumRefrigVaccuum, VacuumRefrigAir, VacuumTVDry, VacuumTVRefrig, VacuumTVAir,
+        VacuumAirRefrigTV, VacuumAirRefrigVaccum, VacuumAirTVRefrig, VacuumAirTVDry, VacuumAirDryRefrig, VacuumAirDryTV,
+        VacuumRefrigAirTV, VacuumRefrigAirDry, VacuumRefrigTVDry, VacuumRefrigTVAir, VacuumRefrigDryAir, VacuumRefrigDryTV,
+        VacuumTVAirRefrig, VacuumTVAirDry, VacuumTVRefrigAir, VacuumTVRefrigDry, VacuumTVVaccumRefrig, VacuumTVDryAir,
+        VacuumDryAirRefrig, VacuumDryAirTV, VacuumDryRefrigTV, VacuumDryRefrigAir, VacuumDryTVAir, VacuumDryTVRefrig,
+        
+       AirRefrigTVDryVaccum
+    
     }
     public class FileClass
     {
         StreamReader FileRead;
         List<string> datas;
+        private ushort DataCount = 0;
+
         public DataClass[] Printdata { get; set; }
         public DataClass TitleData { get; set; }
 
@@ -72,7 +120,7 @@ namespace TestCode
 
                         for(int i=0;i<=15;i++)
                         {
-                            if (strs[i] == "\"+INF\"" || strs[i] == "\"-INF\"" || strs[i] == "OF")
+                            if (strs[i] == "\"+INF\"" || strs[i] == "\"-INF\"" || strs[i] == "OF"|| strs[i]=="#NAME?")
                             {
                                 strs[i] = "NaN";
                             }
@@ -112,14 +160,14 @@ namespace TestCode
                         switch (Choice)
                         {
                             case ChoiceBtn.AIR:
-                                air = "0";
                                 dry = "0";
                                 refrig = "0";
                                 vacuum = "0";
                                 tv = "0";
+                                // 제작중
                                 if(double.TryParse(IE2,out double convertIE2))
                                 {
-                                    if(convertIE2 > 0.06)
+                                    if(convertIE2 > 0.1)
                                     {
                                         air = "1";
                                     }
@@ -129,22 +177,44 @@ namespace TestCode
                                     }
                                 }
                                 break;
-                            case ChoiceBtn.DRY:
+                            case ChoiceBtn.DRY:                                
                                 air = "0";                                
                                 refrig = "0";
                                 vacuum = "0";
                                 tv = "0";
-                                if (double.TryParse(IE2, out double conIE2))
-                                {
-                                    if (conIE2 > 0.1)
-                                    {
-                                        dry = "1";
-                                    }
-                                    else
-                                    {
-                                        dry = "0";
-                                    }
-                                }
+                                //Dry 미완료 
+
+                                //if (double.Parse(IE2) > 0.1)
+                                //{
+                                //    dry = "1";
+
+                                //}
+                                //else
+                                //{
+                                //    if (IE2 == "NaN")
+
+                                //    {
+                                //        dry = "1";
+                                //    }
+                                //    else
+                                //    {
+                                //        dry = "0";
+                                //    }
+                                //}
+
+                                dry = "0";
+                                //if (DataCount == 2)
+                                //{
+                                //    dry = "1";
+                                //}else
+                                //{
+                                //    dry = "0";
+                                //}
+                                //if(IE2=="NaN")
+                                //{
+                                //    DataCount++;                                    
+                                //}
+
 
                                 break;
                             case ChoiceBtn.REFRIG:
@@ -152,10 +222,7 @@ namespace TestCode
                                 dry = "0";
                                 tv = "0";
                                 vacuum = "0";
-                                //if (DEGE2 == "NaN")
-                                //    refrig = "0";
-                                //else
-                                //    refrig = "1";
+                                // 완료
                                 if (FIE2 == "NaN")
                                 {
                                     refrig = "0";
@@ -170,28 +237,30 @@ namespace TestCode
                                 dry = "0";
                                 refrig = "0";
                                 vacuum = "0";
-                                if(double.Parse(PE2)>=5)
+                                // 완료
+                                if(double.Parse(PE2)>=15)
                                 {
                                     tv = "1";
                                 }
                                 else
                                 {
-                                    tv = "0";
+                                    if (PE2 == "NaN")
+                                    {
+                                        tv = "1";
+                                    }
+                                    else
+                                    {
+                                        tv = "0";
+                                    }
                                 }
                                 break;
-                            case ChoiceBtn.VACCUM:
+                            case ChoiceBtn.VACUUM:
                                 air = "0";
                                 dry = "0";
                                 refrig = "0";
                                 tv = "0";
-                                //if (FIE2 == "NaN" && !double.TryParse(IE2, out double IE2double) && double.Parse(IE2) == 0)
-                                //{
-                                //    vacuum = "0";
-                                //}
-                                //else
-                                //{
-                                //    vacuum = "1";
-                                //}
+                                // 완료
+
                                 if (IE2 != "NaN") 
                                 {
                                     if (double.Parse(IE2)>0)
@@ -211,29 +280,9 @@ namespace TestCode
                                     }
                                 }else
                                 {
-                                    //if(FIE2!="NaN")
-                                    //{
                                         vacuum = "1";
-                                    //}else
-                                    //{
-                                    //    vacuum = "0";
-                                    //}
                                 }
-                                //if ((double.Parse(IE2) > 0 || IE2 != "NaN") && FIE2 != "NaN" )
-                                //{
-                                //    vacuum = "1";
-                                //}else
-                                //{
-                                //    vacuum = "0";
-                                //}
-                                //if (FIE2 == "NaN" || IE2 == "NaN"|| double.Parse(IE2) == 0)
-                                //{
-                                //    vacuum = "0";
-                                //}
-                                //else
-                                //{
-                                //    vacuum = "1";
-                                //}
+                           
                                 break;
 
                         }
