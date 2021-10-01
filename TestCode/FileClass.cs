@@ -62,7 +62,6 @@ namespace TestCode
     {
         StreamReader FileRead;
         List<string> datas;
-        private ushort DataCount = 0;
 
         public DataClass[] Printdata { get; set; }
         public DataClass TitleData { get; set; }
@@ -90,7 +89,7 @@ namespace TestCode
         public string vacuum { get; set; }
         public ChoiceBtn Choice { get; set; }
 
-        public DataClass[] ReadFile(string file)
+        public DataClass[] ReadFile(string file,string T1,string T2)
         {
             int count = 0;
             List<DataClass> listdata = new List<DataClass>();
@@ -99,6 +98,7 @@ namespace TestCode
             {
                 string readdata;
                 int readcount = 0;
+                int writecount = 0;
                 while (true)
                 {
                     readdata = FileRead.ReadLine();
@@ -157,6 +157,7 @@ namespace TestCode
 
                         }
                        
+
                         switch (Choice)
                         {
                             case ChoiceBtn.AIR:
@@ -165,17 +166,29 @@ namespace TestCode
                                 vacuum = "0";
                                 tv = "0";
                                 // 제작중
-                                if(double.TryParse(IE2,out double convertIE2))
+
+                                if(T1==Time)
                                 {
-                                    if(convertIE2 > 0.1)
-                                    {
-                                        air = "1";
-                                    }
-                                    else
-                                    {
-                                        air = "0";
-                                    }
+                                    writecount = 1;
+                                }else if(T2 == Time)
+                                {
+                                    writecount = 0;
                                 }
+                                
+                                air = writecount.ToString();
+                                //
+                                //air = "0";
+                                //if(double.TryParse(PE2,out double convertPE2))
+                                //{
+                                //    if(convertPE2 > 5)
+                                //    {
+                                //        air = "1";
+                                //    }
+                                //    else
+                                //    {
+                                //        air = "0";
+                                //    }
+                                //}
                                 break;
                             case ChoiceBtn.DRY:                                
                                 air = "0";                                

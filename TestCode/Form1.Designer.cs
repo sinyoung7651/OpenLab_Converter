@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.VacuumCheck = new System.Windows.Forms.CheckBox();
@@ -63,6 +63,10 @@
             this.Box3 = new System.Windows.Forms.ComboBox();
             this.Box2 = new System.Windows.Forms.ComboBox();
             this.Box1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.textBox2 = new System.Windows.Forms.MaskedTextBox();
             this.panel12.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -247,7 +251,9 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(605, 30);
             this.panel9.TabIndex = 89;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             this.panel9.DoubleClick += new System.EventHandler(this.panel9_DoubleClick);
+            this.panel9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseDown);
             this.panel9.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel9_MouseMove);
             // 
             // label6
@@ -256,9 +262,9 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(12, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 12);
+            this.label6.Size = new System.Drawing.Size(122, 12);
             this.label6.TabIndex = 67;
-            this.label6.Text = "label6";
+            this.label6.Text = "Data Labeling Helper";
             // 
             // Version
             // 
@@ -344,20 +350,21 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea6.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart1.Legends.Add(legend6);
             this.chart1.Location = new System.Drawing.Point(26, 188);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(565, 274);
             this.chart1.TabIndex = 99;
             this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 159);
+            this.comboBox1.Location = new System.Drawing.Point(0, 47);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(96, 20);
             this.comboBox1.TabIndex = 100;
@@ -365,13 +372,14 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.PE2);
             this.panel2.Controls.Add(this.IE2);
             this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Location = new System.Drawing.Point(478, 228);
+            this.panel2.Location = new System.Drawing.Point(476, 382);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(96, 191);
+            this.panel2.Size = new System.Drawing.Size(96, 70);
             this.panel2.TabIndex = 101;
             // 
             // PE2
@@ -403,15 +411,15 @@
             this.panel3.Controls.Add(this.Box3);
             this.panel3.Controls.Add(this.Box2);
             this.panel3.Controls.Add(this.Box1);
-            this.panel3.Location = new System.Drawing.Point(31, 145);
+            this.panel3.Location = new System.Drawing.Point(175, 145);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(467, 37);
+            this.panel3.Size = new System.Drawing.Size(399, 28);
             this.panel3.TabIndex = 102;
             // 
             // Box5
             // 
             this.Box5.FormattingEnabled = true;
-            this.Box5.Location = new System.Drawing.Point(341, 3);
+            this.Box5.Location = new System.Drawing.Point(326, 3);
             this.Box5.Name = "Box5";
             this.Box5.Size = new System.Drawing.Size(72, 20);
             this.Box5.TabIndex = 0;
@@ -419,7 +427,7 @@
             // Box4
             // 
             this.Box4.FormattingEnabled = true;
-            this.Box4.Location = new System.Drawing.Point(263, 3);
+            this.Box4.Location = new System.Drawing.Point(248, 3);
             this.Box4.Name = "Box4";
             this.Box4.Size = new System.Drawing.Size(72, 20);
             this.Box4.TabIndex = 0;
@@ -428,7 +436,7 @@
             // Box3
             // 
             this.Box3.FormattingEnabled = true;
-            this.Box3.Location = new System.Drawing.Point(185, 3);
+            this.Box3.Location = new System.Drawing.Point(170, 3);
             this.Box3.Name = "Box3";
             this.Box3.Size = new System.Drawing.Size(72, 20);
             this.Box3.TabIndex = 0;
@@ -437,7 +445,7 @@
             // Box2
             // 
             this.Box2.FormattingEnabled = true;
-            this.Box2.Location = new System.Drawing.Point(101, 3);
+            this.Box2.Location = new System.Drawing.Point(87, 3);
             this.Box2.Name = "Box2";
             this.Box2.Size = new System.Drawing.Size(78, 20);
             this.Box2.TabIndex = 0;
@@ -446,17 +454,57 @@
             // Box1
             // 
             this.Box1.FormattingEnabled = true;
-            this.Box1.Location = new System.Drawing.Point(20, 3);
+            this.Box1.Location = new System.Drawing.Point(6, 3);
             this.Box1.Name = "Box1";
             this.Box1.Size = new System.Drawing.Size(75, 20);
             this.Box1.TabIndex = 0;
             this.Box1.SelectedIndexChanged += new System.EventHandler(this.Box1_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 12);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "시작 시간";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(95, 145);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 12);
+            this.label2.TabIndex = 105;
+            this.label2.Text = "종료 시간";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(26, 161);
+            this.textBox1.Mask = "00:00:00";
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ResetOnSpace = false;
+            this.textBox1.Size = new System.Drawing.Size(64, 21);
+            this.textBox1.TabIndex = 106;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(96, 161);
+            this.textBox2.Mask = "00:00:00";
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ResetOnSpace = false;
+            this.textBox2.Size = new System.Drawing.Size(64, 21);
+            this.textBox2.TabIndex = 106;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 551);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.chart1);
@@ -524,6 +572,10 @@
         private System.Windows.Forms.ComboBox Box1;
         private System.Windows.Forms.CheckBox PE2;
         private System.Windows.Forms.CheckBox IE2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox textBox2;
     }
 }
 

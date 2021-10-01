@@ -18,3 +18,14 @@ E:\Sinyoung\OpenLab_Converter\soc\Testcode\TestCode\obj\Debug\TestCode.pdb
 E:\Sinyoung\OpenLab_Converter\soc\Testcode\TestCode\bin\Debug\TestCode.exe.config
 E:\Sinyoung\OpenLab_Converter\soc\Testcode\TestCode\bin\Debug\TestCode.exe
 E:\Sinyoung\OpenLab_Converter\soc\Testcode\TestCode\bin\Debug\TestCode.pdb
+D:\Project2\src\OpenLab_Label\TestCode\bin\Debug\TestCode.exe.config
+D:\Project2\src\OpenLab_Label\TestCode\bin\Debug\TestCode.exe
+D:\Project2\src\OpenLab_Label\TestCode\bin\Debug\TestCode.pdb
+D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.csprojAssemblyReference.cache
+D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.Form1.resources
+D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.Properties.Resources.resources
+D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.csproj.GenerateResource.cache
+D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.csproj.CoreCompileInputs.cache
+D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.exe
+D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.pdb
+D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.csproj.Fody.CopyLocal.cache

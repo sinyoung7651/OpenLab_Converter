@@ -667,7 +667,7 @@ namespace TestCode
             {
                 FC.Choice = ChoiceBtn.DRY;
             }
-            data = FC.ReadFile(FileRead);
+            data = FC.ReadFile(FileRead,textBox1.Text,textBox2.Text);
 
             //foreach (var a in data)
             //{
@@ -883,6 +883,21 @@ namespace TestCode
             {
                 MadeChart(data);
             }
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel9_MouseDown(object sender, MouseEventArgs e)
+        {
+                mousePoint = new Point(e.X, e.Y);
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

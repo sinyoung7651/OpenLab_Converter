@@ -1,0 +1,11 @@
+D:\Project2\src\OpenLab_Label\TestCode\bin\Release\TestCode.exe.config
+D:\Project2\src\OpenLab_Label\TestCode\bin\Release\TestCode.exe
+D:\Project2\src\OpenLab_Label\TestCode\bin\Release\TestCode.pdb
+D:\Project2\src\OpenLab_Label\TestCode\obj\Release\TestCode.csprojAssemblyReference.cache
+D:\Project2\src\OpenLab_Label\TestCode\obj\Release\TestCode.Form1.resources
+D:\Project2\src\OpenLab_Label\TestCode\obj\Release\TestCode.Properties.Resources.resources
+D:\Project2\src\OpenLab_Label\TestCode\obj\Release\TestCode.csproj.GenerateResource.cache
+D:\Project2\src\OpenLab_Label\TestCode\obj\Release\TestCode.csproj.CoreCompileInputs.cache
+D:\Project2\src\OpenLab_Label\TestCode\obj\Release\TestCode.csproj.Fody.CopyLocal.cache
+D:\Project2\src\OpenLab_Label\TestCode\obj\Release\TestCode.exe
+D:\Project2\src\OpenLab_Label\TestCode\obj\Release\TestCode.pdb
