@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -38,15 +40,12 @@
             this.RefrigCheck = new System.Windows.Forms.CheckBox();
             this.TVCheck = new System.Windows.Forms.CheckBox();
             this.START = new System.Windows.Forms.Button();
-            this.ProgramName = new System.Windows.Forms.Label();
             this.Closebtn = new System.Windows.Forms.Button();
             this.MinSizebtn = new System.Windows.Forms.Button();
             this.MaxSizebtn = new System.Windows.Forms.Button();
             this.LoadFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.Version = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LoadFileText = new System.Windows.Forms.TextBox();
             this.SaveFile = new System.Windows.Forms.Button();
@@ -54,9 +53,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.PE2 = new System.Windows.Forms.CheckBox();
-            this.IE2 = new System.Windows.Forms.CheckBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Box5 = new System.Windows.Forms.ComboBox();
             this.Box4 = new System.Windows.Forms.ComboBox();
@@ -67,13 +63,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.MaskedTextBox();
             this.textBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel12.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel12
@@ -166,17 +169,6 @@
             this.START.UseVisualStyleBackColor = false;
             this.START.Click += new System.EventHandler(this.START_Click);
             // 
-            // ProgramName
-            // 
-            this.ProgramName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ProgramName.AutoSize = true;
-            this.ProgramName.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.ProgramName.Location = new System.Drawing.Point(160, 509);
-            this.ProgramName.Name = "ProgramName";
-            this.ProgramName.Size = new System.Drawing.Size(50, 20);
-            this.ProgramName.TabIndex = 93;
-            this.ProgramName.Text = "label4";
-            // 
             // Closebtn
             // 
             this.Closebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -184,7 +176,7 @@
             this.Closebtn.FlatAppearance.BorderSize = 0;
             this.Closebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Closebtn.ForeColor = System.Drawing.Color.White;
-            this.Closebtn.Location = new System.Drawing.Point(573, 0);
+            this.Closebtn.Location = new System.Drawing.Point(1006, 0);
             this.Closebtn.Name = "Closebtn";
             this.Closebtn.Size = new System.Drawing.Size(30, 30);
             this.Closebtn.TabIndex = 64;
@@ -199,7 +191,7 @@
             this.MinSizebtn.FlatAppearance.BorderSize = 0;
             this.MinSizebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MinSizebtn.ForeColor = System.Drawing.Color.White;
-            this.MinSizebtn.Location = new System.Drawing.Point(513, 0);
+            this.MinSizebtn.Location = new System.Drawing.Point(946, 0);
             this.MinSizebtn.Name = "MinSizebtn";
             this.MinSizebtn.Size = new System.Drawing.Size(30, 30);
             this.MinSizebtn.TabIndex = 66;
@@ -215,7 +207,7 @@
             this.MaxSizebtn.FlatAppearance.BorderSize = 0;
             this.MaxSizebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.MaxSizebtn.ForeColor = System.Drawing.Color.White;
-            this.MaxSizebtn.Location = new System.Drawing.Point(543, 0);
+            this.MaxSizebtn.Location = new System.Drawing.Point(976, 0);
             this.MaxSizebtn.Name = "MaxSizebtn";
             this.MaxSizebtn.Size = new System.Drawing.Size(30, 30);
             this.MaxSizebtn.TabIndex = 65;
@@ -226,16 +218,6 @@
             // LoadFileDialog
             // 
             this.LoadFileDialog.FileName = "openFileDialog1";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.Location = new System.Drawing.Point(27, 494);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(121, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 91;
-            this.pictureBox1.TabStop = false;
             // 
             // panel9
             // 
@@ -249,7 +231,7 @@
             this.panel9.Controls.Add(this.MaxSizebtn);
             this.panel9.Location = new System.Drawing.Point(-1, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(605, 30);
+            this.panel9.Size = new System.Drawing.Size(1038, 30);
             this.panel9.TabIndex = 89;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             this.panel9.DoubleClick += new System.EventHandler(this.panel9_DoubleClick);
@@ -266,17 +248,6 @@
             this.label6.TabIndex = 67;
             this.label6.Text = "Data Labeling Helper";
             // 
-            // Version
-            // 
-            this.Version.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Version.AutoSize = true;
-            this.Version.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Version.Location = new System.Drawing.Point(249, 504);
-            this.Version.Name = "Version";
-            this.Version.Size = new System.Drawing.Size(39, 15);
-            this.Version.TabIndex = 92;
-            this.Version.Text = "label4";
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -284,7 +255,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.Location = new System.Drawing.Point(26, 86);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(547, 1);
+            this.panel1.Size = new System.Drawing.Size(980, 1);
             this.panel1.TabIndex = 88;
             // 
             // LoadFileText
@@ -297,7 +268,7 @@
             this.LoadFileText.Name = "LoadFileText";
             this.LoadFileText.ReadOnly = true;
             this.LoadFileText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.LoadFileText.Size = new System.Drawing.Size(442, 21);
+            this.LoadFileText.Size = new System.Drawing.Size(875, 21);
             this.LoadFileText.TabIndex = 85;
             this.LoadFileText.DragDrop += new System.Windows.Forms.DragEventHandler(this.LoadFileText_DragDrop);
             this.LoadFileText.DragEnter += new System.Windows.Forms.DragEventHandler(this.LoadFileText_DragEnter);
@@ -310,9 +281,9 @@
             this.SaveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SaveFile.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.SaveFile.ForeColor = System.Drawing.Color.White;
-            this.SaveFile.Location = new System.Drawing.Point(475, 495);
+            this.SaveFile.Location = new System.Drawing.Point(893, 477);
             this.SaveFile.Name = "SaveFile";
-            this.SaveFile.Size = new System.Drawing.Size(99, 46);
+            this.SaveFile.Size = new System.Drawing.Size(114, 49);
             this.SaveFile.TabIndex = 87;
             this.SaveFile.Text = "Info Export";
             this.SaveFile.UseVisualStyleBackColor = false;
@@ -326,7 +297,7 @@
             this.OpenLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OpenLoad.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.OpenLoad.ForeColor = System.Drawing.Color.White;
-            this.OpenLoad.Location = new System.Drawing.Point(475, 56);
+            this.OpenLoad.Location = new System.Drawing.Point(908, 56);
             this.OpenLoad.Name = "OpenLoad";
             this.OpenLoad.Size = new System.Drawing.Size(99, 21);
             this.OpenLoad.TabIndex = 86;
@@ -337,7 +308,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(328, 492);
+            this.button1.Location = new System.Drawing.Point(755, 478);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 49);
             this.button1.TabIndex = 98;
@@ -350,13 +321,13 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart1.Legends.Add(legend6);
-            this.chart1.Location = new System.Drawing.Point(26, 188);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chart1.Legends.Add(legend5);
+            this.chart1.Location = new System.Drawing.Point(26, 219);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(565, 274);
+            this.chart1.Size = new System.Drawing.Size(484, 243);
             this.chart1.TabIndex = 99;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -364,45 +335,11 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(0, 47);
+            this.comboBox1.Location = new System.Drawing.Point(910, 153);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(96, 20);
             this.comboBox1.TabIndex = 100;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            // 
-            // panel2
-            // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.PE2);
-            this.panel2.Controls.Add(this.IE2);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Location = new System.Drawing.Point(476, 382);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(96, 70);
-            this.panel2.TabIndex = 101;
-            // 
-            // PE2
-            // 
-            this.PE2.AutoSize = true;
-            this.PE2.Location = new System.Drawing.Point(7, 25);
-            this.PE2.Name = "PE2";
-            this.PE2.Size = new System.Drawing.Size(86, 16);
-            this.PE2.TabIndex = 103;
-            this.PE2.Text = "전력(P-E2)";
-            this.PE2.UseVisualStyleBackColor = true;
-            this.PE2.CheckedChanged += new System.EventHandler(this.PE2_CheckedChanged);
-            // 
-            // IE2
-            // 
-            this.IE2.AutoSize = true;
-            this.IE2.Location = new System.Drawing.Point(7, 3);
-            this.IE2.Name = "IE2";
-            this.IE2.Size = new System.Drawing.Size(81, 16);
-            this.IE2.TabIndex = 103;
-            this.IE2.Text = "전류(I-E2)";
-            this.IE2.UseVisualStyleBackColor = true;
-            this.IE2.CheckedChanged += new System.EventHandler(this.IE2_CheckedChanged);
             // 
             // panel3
             // 
@@ -496,24 +433,104 @@
             this.textBox2.Size = new System.Drawing.Size(64, 21);
             this.textBox2.TabIndex = 106;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(158, 478);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 49);
+            this.button2.TabIndex = 107;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(97, 478);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(54, 21);
+            this.textBox3.TabIndex = 108;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(44, 481);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 12);
+            this.label3.TabIndex = 109;
+            this.label3.Text = "몇 번 째";
+            // 
+            // chart2
+            // 
+            this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea6.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chart2.Legends.Add(legend6);
+            this.chart2.Location = new System.Drawing.Point(523, 188);
+            this.chart2.Name = "chart2";
+            this.chart2.Size = new System.Drawing.Size(484, 274);
+            this.chart2.TabIndex = 99;
+            this.chart2.Text = "chart1";
+            this.chart2.Click += new System.EventHandler(this.chart1_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(51, 188);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 21);
+            this.textBox4.TabIndex = 110;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(158, 188);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 21);
+            this.textBox5.TabIndex = 110;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 111;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(276, 188);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 112;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 551);
+            this.ClientSize = new System.Drawing.Size(1036, 551);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel12);
-            this.Controls.Add(this.ProgramName);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel9);
-            this.Controls.Add(this.Version);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LoadFileText);
             this.Controls.Add(this.SaveFile);
@@ -526,13 +543,11 @@
             this.panel12.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -542,15 +557,12 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button START;
-        private System.Windows.Forms.Label ProgramName;
         private System.Windows.Forms.Button Closebtn;
         private System.Windows.Forms.Button MinSizebtn;
         private System.Windows.Forms.Button MaxSizebtn;
         private System.Windows.Forms.OpenFileDialog LoadFileDialog;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label Version;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox LoadFileText;
         private System.Windows.Forms.Button SaveFile;
@@ -563,19 +575,24 @@
         private System.Windows.Forms.CheckBox TVCheck;
         private System.Windows.Forms.CheckBox DryCheck;
         private System.Windows.Forms.CheckBox VacuumCheck;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox Box5;
         private System.Windows.Forms.ComboBox Box4;
         private System.Windows.Forms.ComboBox Box3;
         private System.Windows.Forms.ComboBox Box2;
         private System.Windows.Forms.ComboBox Box1;
-        private System.Windows.Forms.CheckBox PE2;
-        private System.Windows.Forms.CheckBox IE2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox textBox1;
         private System.Windows.Forms.MaskedTextBox textBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
 

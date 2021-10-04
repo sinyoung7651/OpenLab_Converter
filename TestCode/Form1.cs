@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
-
+using System.Windows.Forms.DataVisualization.Charting;
 namespace TestCode
 {
     public partial class Form1 : Form
@@ -26,12 +26,14 @@ namespace TestCode
         }
         public string[] ChartType { get; set; }
         public string[] ChoiceType { get; set; }
+
+        Axis ax,ay;
         private void Form1_Load(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.None;
 
-            ChartType = new string[] { "Point", "FastPoint", "Line", "StepLine", "FastLine", "Bar", "StackedBar", "Column", "StackedColumn", "Area", "StackedArea","Stock", "Candlestick", "Range", "SplineRange", "RangeBar", "RangeColumn" };
+            ChartType = new string[] { "Point", "FastPoint", "Line", "StepLine", "FastLine", "Bar", "StackedBar", "Column", "StackedColumn", "Area", "Stock", "Candlestick", "Range", "SplineRange", "RangeBar", "RangeColumn" };
 
             ChoiceType = new string[] { "Air", "Refrig", "TV", "Dry", "Vacuum" };
 
@@ -41,10 +43,15 @@ namespace TestCode
             Box4.Items.AddRange(ChoiceType);
             Box5.Items.AddRange(ChoiceType);
             chart1.Series.Add("IE2");
-            chart1.Series.Add("PE2");
+            chart2.Series.Add("PE2");
             comboBox1.Items.AddRange(ChartType);
 
-            comboBox1.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 2;
+
+            ax = chart1.ChartAreas[0].AxisX;
+            ay = chart1.ChartAreas[0].AxisY;
+            
+
         }
         private void ChoiceChart()
         {
@@ -52,72 +59,68 @@ namespace TestCode
             switch (comboBox1.Text)
             {
                 case "Point":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.Point;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.Point;
                     break;
                 case "FastPoint":
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastPoint;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.FastPoint;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.FastPoint;
                     break;
                 case "Line":
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.Line;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.Line;
                     break;
                 case "StepLine":
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StepLine;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.StepLine;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.StepLine;
                     break;
                 case "FastLine":
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.FastLine;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.FastLine;
                     break;
                 case "Bar":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.Bar;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.Bar;
                     break;
                 case "StackedBar":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedBar;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.StackedBar;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.StackedBar;
                     break;
                 case "Column":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.Column;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.Column;
                     break;
                 case "StackedColumn":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedColumn;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.StackedColumn;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.StackedColumn;
                     break;
                 case "Area":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
-                    break;
-                case "StackedArea":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.StackedArea;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.Area;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.Area;
                     break;
                 case "Stock":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Stock;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Stock;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.Stock;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.Stock;
                     break;
                 case "Candlestick":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Candlestick;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.Candlestick;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.Candlestick;
                     break;
                 case "Range":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Range;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Range;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.Range;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.Range;
                     break;
                 case "SplineRange":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineRange;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.SplineRange;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.SplineRange;
                     break;
                 case "RangeBar":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeBar;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.RangeBar;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.RangeBar;
                     break;
                 case "RangeColumn":
-                    chart1.Series["IE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeColumn;
-                    chart1.Series["PE2"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.RangeColumn;
+                    chart1.Series["IE2"].ChartType =SeriesChartType.RangeColumn;
+                    chart2.Series["PE2"].ChartType =SeriesChartType.RangeColumn;
                     break;
             }
         }
@@ -680,36 +683,27 @@ namespace TestCode
             //chart1.Series["Data"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             ChoiceChart();
             chart1.Series["IE2"].Points.Clear();
-            chart1.Series["PE2"].Points.Clear();
+            chart2.Series["PE2"].Points.Clear();
             //chart1.Series.Add("PE2");
             foreach (var a in data)
             {
                 
-                if (IE2.Checked)
+                if (double.TryParse(a.IE2, out double doubleI))
                 {
-
-
-                    if (double.TryParse(a.IE2, out double doublea))
-                    {
-                        chart1.Series["IE2"].Points.Add(doublea);
-                    }
-                    else
-                    {
-                        chart1.Series["IE2"].Points.Add(0);
-                    }
+                    chart1.Series["IE2"].Points.AddXY(a.Time,doubleI);
                 }
-                if(PE2.Checked)
+                else
                 {
-                    if (double.TryParse(a.PE2, out double doublea))
-                    {
-                        chart1.Series["PE2"].Points.Add(doublea);
-                    }
-                    else
-                    {
-                        chart1.Series["PE2"].Points.Add(0);
-                    }
+                    chart1.Series["IE2"].Points.AddXY(a.Time, 0);
                 }
-
+                if (double.TryParse(a.PE2, out double doubleP))
+                {
+                    chart2.Series["PE2"].Points.AddXY(a.Time, doubleP);
+                }
+                else
+                {
+                    chart2.Series["PE2"].Points.AddXY(a.Time, 0);
+                }
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -897,6 +891,68 @@ namespace TestCode
 
         private void chart1_Click(object sender, EventArgs e)
         {
+
+        }
+        string ThingText;
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //var sfd = new SaveFileDialog();
+            //sfd.Filter = "csv 파일(*.csv) | *.csv; | 모든파일(*.*)| *.*";
+            //sfd.OverwritePrompt = true;
+            //sfd.FileName = ""
+            //if (sfd.ShowDialog() != DialogResult.OK)
+            //    return;
+
+            var fvd = new FolderBrowserDialog();
+            if (fvd.ShowDialog() != DialogResult.OK)
+                return;
+
+            string datetime = DateTime.Now.ToString("yymmdd");
+            
+            if (AirCheck.Checked)
+                ThingText = "air";
+            else if (RefrigCheck.Checked)
+                ThingText = "refrig";
+            else if (TVCheck.Checked)
+                ThingText = "tv";
+            else if (DryCheck.Checked)
+                ThingText = "dry";
+            else if (VacuumCheck.Checked)
+                ThingText = "vacuum";
+            else
+                ThingText = "0";
+            string NumText = textBox3.Text + "th";
+            string csv = ".csv";
+
+            string Nametest = fvd.SelectedPath + "\\" + datetime + "_grida_" + ThingText + "_" + NumText;
+            string Name1 = Nametest + csv;
+            string Name2 = Nametest + "_info"+csv;
+            if (MessageBox.Show("저장합니다", "저장", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Export(Name1);
+                InfoExport(Name2);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
+            //ax.ScaleView.Zoom(double.Parse(textBox4.Text), double.Parse(textBox5.Text));
+
+            chart1.Series["IE2"].XValueType = ChartValueType.DateTime;
+            chart1.ChartAreas[0].AxisX.LabelStyle.Format = "hh:mm:ss";
+
+            string timeformat = "hh:mm:ss";
+            DateTime mindt = DateTime.Parse(textBox4.Text);
+            DateTime maxdt = DateTime.Parse(textBox5.Text);
+            //DateTime maxdt = DateTime.ParseExact(textBox5.Text, timeformat, null);
+            chart1.ChartAreas[0].AxisX.Interval = 1;
+            chart1.ChartAreas[0].AxisX.Minimum = mindt.ToOADate();
+            chart1.ChartAreas[0].AxisX.Minimum = maxdt.ToOADate();
 
         }
     }
