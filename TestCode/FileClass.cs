@@ -8,11 +8,11 @@ using System.Threading;
 
 namespace TestCode
 {
-    public enum ChoiceBtn
+    public enum ChoiceBtn 
     {
 
 
-        AIR,
+        AIR ,
         AirRefrig, AirTv, AirDry, AirVaccum,
         AirRefrigTv,AirRefrigDry,AirRefrigVaccum, AirTVDry, AirTvVaccuum, AirTVRefrig, AirDryVacuum, AirDryTV, AirDryRefrig,
         AirRefrigTvDry,AirRefrigTvVaccum, AirRefrigDryTV, AirRefrigDryVacuum, AirRefrigVacuumTV,AirRefrigVacuumDry, 
@@ -89,7 +89,8 @@ namespace TestCode
         public string vacuum { get; set; }
         public ChoiceBtn Choice { get; set; }
 
-        public DataClass[] ReadFile(string file,string T1,string T2)
+
+        public DataClass[] ReadFile(string file)
         {
             int count = 0;
             List<DataClass> listdata = new List<DataClass>();
@@ -98,7 +99,6 @@ namespace TestCode
             {
                 string readdata;
                 int readcount = 0;
-                int writecount = 0;
                 while (true)
                 {
                     readdata = FileRead.ReadLine();
@@ -118,13 +118,13 @@ namespace TestCode
                         }
                         var strs = readdata.Split(',');
 
-                        for(int i=0;i<=15;i++)
+                        for (int i = 0; i <= 15; i++)
                         {
-                            if (strs[i] == "\"+INF\"" || strs[i] == "\"-INF\"" || strs[i] == "OF"|| strs[i]=="#NAME?")
+                            if (strs[i] == "\"+INF\"" || strs[i] == "\"-INF\"" || strs[i] == "OF" || strs[i] == "#NAME?")
                             {
                                 strs[i] = "NaN";
                             }
-                                
+
                         }
                         Number = strs[0];
                         Date = strs[1];
@@ -156,26 +156,28 @@ namespace TestCode
                             continue;
 
                         }
-                       
+
 
                         switch (Choice)
                         {
                             case ChoiceBtn.AIR:
+                                air = "0";
                                 dry = "0";
                                 refrig = "0";
                                 vacuum = "0";
                                 tv = "0";
                                 // 제작중
 
-                                if(T1==Time)
-                                {
-                                    writecount = 1;
-                                }else if(T2 == Time)
-                                {
-                                    writecount = 0;
-                                }
-                                
-                                air = writecount.ToString();
+                                //if (T1 == Time)
+                                //{
+                                //    writecount = 1;
+                                //}
+                                //else if (T2 == Time)
+                                //{
+                                //    writecount = 0;
+                                //}
+
+                                //air = writecount.ToString();
                                 //
                                 //air = "0";
                                 //if(double.TryParse(PE2,out double convertPE2))
@@ -190,8 +192,8 @@ namespace TestCode
                                 //    }
                                 //}
                                 break;
-                            case ChoiceBtn.DRY:                                
-                                air = "0";                                
+                            case ChoiceBtn.DRY:
+                                air = "0";
                                 refrig = "0";
                                 vacuum = "0";
                                 tv = "0";
@@ -231,6 +233,7 @@ namespace TestCode
 
                                 break;
                             case ChoiceBtn.REFRIG:
+
                                 air = "0";
                                 dry = "0";
                                 tv = "0";
@@ -251,7 +254,7 @@ namespace TestCode
                                 refrig = "0";
                                 vacuum = "0";
                                 // 완료
-                                if(double.Parse(PE2)>=15)
+                                if (double.Parse(PE2) >= 15)
                                 {
                                     tv = "1";
                                 }
@@ -274,9 +277,9 @@ namespace TestCode
                                 tv = "0";
                                 // 완료
 
-                                if (IE2 != "NaN") 
+                                if (IE2 != "NaN")
                                 {
-                                    if (double.Parse(IE2)>0)
+                                    if (double.Parse(IE2) > 0)
                                     {
                                         vacuum = "1";
                                     }
@@ -291,15 +294,30 @@ namespace TestCode
                                             vacuum = "0";
                                         }
                                     }
-                                }else
-                                {
-                                        vacuum = "1";
                                 }
-                           
+                                else
+                                {
+                                    vacuum = "1";
+                                }
+
+                                break;
+                            case ChoiceBtn.DryTV:
+                                air = "0";
+                                dry = "0";
+                                refrig = "0";
+                                tv = "0";
+                                vacuum = "0";
+                                break;
+                            default:
+                                air = "0";
+                                dry = "0";
+                                refrig = "0";
+                                tv = "0";
+                                vacuum = "0";
                                 break;
 
                         }
-
+                        //listdata.Add(new DataClass() { Number = Number, Date = Date, Time = Time, UE2 = UE2, IE2 = IE2, PE2 = PE2, SE2 = SE2, QE2 = QE2, PFE2 = PFE2, DEGE2 = DEGE2, FUE2 = FUE2, FIE2 = FIE2, UPlustpkE2 = UPlustpkE2, UMinuspkE2 = UMinuspkE2, IPluspkE2 = IPluspkE2, IMinusE2 = IMinusE2 });
                         listdata.Add(new DataClass() { Number = Number, Date = Date, Time = Time, UE2 = UE2, IE2 = IE2, PE2 = PE2, SE2 = SE2, QE2 = QE2, PFE2 = PFE2, DEGE2 = DEGE2, FUE2 = FUE2, FIE2 = FIE2, UPlustpkE2 = UPlustpkE2, UMinuspkE2 = UMinuspkE2, IPluspkE2 = IPluspkE2, IMinusE2 = IMinusE2, air = air, refrig = refrig, tv = tv, dry = dry, vacuum = vacuum });
 
 
@@ -307,7 +325,221 @@ namespace TestCode
                     }
                 }
                 return Printdata;
-            }          
+            }
+        }
+        
+            
+        public void Labeling(DataClass[] data,string that, string T1,string T2)
+        {
+            int writecount = 0;
+            foreach (var a in data)
+            {
+
+
+                
+                if (T1 == a.Number)
+                {
+                    writecount = 1;
+                }
+                else if (T2 == a.Number)
+                {
+                    writecount = 0;
+                }
+                //switch (Choice)
+                //{
+
+                //    case ChoiceBtn.AIR:
+                //        a.dry = "0";
+                //        a.refrig = "0";
+                //        a.vacuum = "0";
+                //        a.tv = "0";
+
+                //        // 제작중
+
+
+
+                //        a.air = writecount.ToString();
+                //        //
+                //        //air = "0";
+                //        //if(double.TryParse(PE2,out double convertPE2))
+                //        //{
+                //        //    if(convertPE2 > 5)
+                //        //    {
+                //        //        air = "1";
+                //        //    }
+                //        //    else
+                //        //    {
+                //        //        air = "0";
+                //        //    }
+                //        //}
+                //        break;
+                //    case ChoiceBtn.DRY:
+                //        air = "0";
+                //        refrig = "0";
+                //        vacuum = "0";
+                //        tv = "0";
+                //        //Dry 미완료 
+
+                //        //if (double.Parse(IE2) > 0.1)
+                //        //{
+                //        //    dry = "1";
+
+                //        //}
+                //        //else
+                //        //{
+                //        //    if (IE2 == "NaN")
+
+                //        //    {
+                //        //        dry = "1";
+                //        //    }
+                //        //    else
+                //        //    {
+                //        //        dry = "0";
+                //        //    }
+                //        //}
+
+                //        dry = "0";
+                //        //if (DataCount == 2)
+                //        //{
+                //        //    dry = "1";
+                //        //}else
+                //        //{
+                //        //    dry = "0";
+                //        //}
+                //        //if(IE2=="NaN")
+                //        //{
+                //        //    DataCount++;                                    
+                //        //}
+
+
+                //        break;
+                //    case ChoiceBtn.REFRIG:
+
+                //        air = "0";
+                //        dry = "0";
+                //        tv = "0";
+                //        vacuum = "0";
+                //        // 완료
+                //        if (FIE2 == "NaN")
+                //        {
+                //            refrig = "0";
+                //        }
+                //        else
+                //        {
+                //            refrig = "1";
+                //        }
+                //        break;
+                //    case ChoiceBtn.TV:
+                //        air = "0";
+                //        dry = "0";
+                //        refrig = "0";
+                //        vacuum = "0";
+                //        // 완료
+                //        if (double.Parse(PE2) >= 15)
+                //        {
+                //            tv = "1";
+                //        }
+                //        else
+                //        {
+                //            if (PE2 == "NaN")
+                //            {
+                //                tv = "1";
+                //            }
+                //            else
+                //            {
+                //                tv = "0";
+                //            }
+                //        }
+                //        break;
+                //    case ChoiceBtn.VACUUM:
+                //        air = "0";
+                //        dry = "0";
+                //        refrig = "0";
+                //        tv = "0";
+                //        // 완료
+
+                //        if (IE2 != "NaN")
+                //        {
+                //            if (double.Parse(IE2) > 0)
+                //            {
+                //                vacuum = "1";
+                //            }
+                //            else
+                //            {
+                //                if (FUE2 == "NaN")
+                //                {
+                //                    vacuum = "1";
+                //                }
+                //                else
+                //                {
+                //                    vacuum = "0";
+                //                }
+                //            }
+                //        }
+                //        else
+                //        {
+                //            vacuum = "1";
+                //        }
+
+                //        break;
+                //    case ChoiceBtn.DryTV:
+                //        air = "0";
+                //        dry = "0";
+                //        refrig = "0";
+                //        tv = "0";
+                //        vacuum = "0";
+                //        break;
+                //    default:
+                //        a.air = writecount.ToString();
+                //        a.dry = "0";
+                //        a.refrig = "0";
+                //        a.tv = "0";
+                //        a.vacuum = "0";
+                //        break;
+
+                //}
+
+
+                switch (that)
+                {
+
+                    case "air":
+                        a.air = writecount.ToString();
+                        break;
+                    case "refrig":
+                        a.refrig = writecount.ToString();
+                        break;
+                    case "tv":
+                        a.tv = writecount.ToString();
+                        break;
+                    case "dry":
+                        a.dry = writecount.ToString();
+                        break;
+                    case "vacuum":
+                        a.vacuum = writecount.ToString();
+                        break;
+                }
+                if(a.air==null)
+                {
+                    a.air = "0";
+                }
+                if (a.refrig == null)
+                {
+                    a.refrig = "0";
+                }
+                if (a.tv == null)
+                {
+                    a.tv = "0";
+                }
+                if(a.dry== null)
+                {
+                    a.dry = "0";
+                }
+                if(a.vacuum== null)
+                {
+                    a.vacuum = "0";
+                }
+            }
         }
         public void Export(string filepath)
         {

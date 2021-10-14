@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.VacuumCheck = new System.Windows.Forms.CheckBox();
-            this.AirCheck = new System.Windows.Forms.CheckBox();
-            this.DryCheck = new System.Windows.Forms.CheckBox();
-            this.RefrigCheck = new System.Windows.Forms.CheckBox();
-            this.TVCheck = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.START = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.Box5 = new System.Windows.Forms.ComboBox();
+            this.Box4 = new System.Windows.Forms.ComboBox();
+            this.Box3 = new System.Windows.Forms.ComboBox();
+            this.Box2 = new System.Windows.Forms.ComboBox();
+            this.Box1 = new System.Windows.Forms.ComboBox();
             this.Closebtn = new System.Windows.Forms.Button();
             this.MinSizebtn = new System.Windows.Forms.Button();
             this.MaxSizebtn = new System.Windows.Forms.Button();
@@ -48,20 +52,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LoadFileText = new System.Windows.Forms.TextBox();
-            this.SaveFile = new System.Windows.Forms.Button();
             this.OpenLoad = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.Box5 = new System.Windows.Forms.ComboBox();
-            this.Box4 = new System.Windows.Forms.ComboBox();
-            this.Box3 = new System.Windows.Forms.ComboBox();
-            this.Box2 = new System.Windows.Forms.ComboBox();
-            this.Box1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.MaskedTextBox();
             this.textBox2 = new System.Windows.Forms.MaskedTextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -69,13 +64,14 @@
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.panel12.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,74 +81,48 @@
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel12.Controls.Add(this.panel7);
             this.panel12.Controls.Add(this.START);
+            this.panel12.Controls.Add(this.panel3);
             this.panel12.Location = new System.Drawing.Point(27, 93);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(547, 46);
+            this.panel12.Size = new System.Drawing.Size(977, 46);
             this.panel12.TabIndex = 90;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.White;
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.VacuumCheck);
-            this.panel7.Controls.Add(this.AirCheck);
-            this.panel7.Controls.Add(this.DryCheck);
-            this.panel7.Controls.Add(this.RefrigCheck);
-            this.panel7.Controls.Add(this.TVCheck);
+            this.panel7.Controls.Add(this.comboBox2);
+            this.panel7.Controls.Add(this.button3);
+            this.panel7.Controls.Add(this.textBox7);
+            this.panel7.Controls.Add(this.textBox6);
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(382, 37);
             this.panel7.TabIndex = 73;
             // 
-            // VacuumCheck
+            // button3
             // 
-            this.VacuumCheck.AutoSize = true;
-            this.VacuumCheck.Location = new System.Drawing.Point(225, 11);
-            this.VacuumCheck.Name = "VacuumCheck";
-            this.VacuumCheck.Size = new System.Drawing.Size(71, 16);
-            this.VacuumCheck.TabIndex = 101;
-            this.VacuumCheck.Text = "Vacuum";
-            this.VacuumCheck.UseVisualStyleBackColor = true;
+            this.button3.Location = new System.Drawing.Point(302, 5);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Labeling";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // AirCheck
+            // textBox7
             // 
-            this.AirCheck.AutoSize = true;
-            this.AirCheck.Location = new System.Drawing.Point(19, 11);
-            this.AirCheck.Name = "AirCheck";
-            this.AirCheck.Size = new System.Drawing.Size(39, 16);
-            this.AirCheck.TabIndex = 101;
-            this.AirCheck.Text = "Air";
-            this.AirCheck.UseVisualStyleBackColor = true;
+            this.textBox7.Location = new System.Drawing.Point(196, 7);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 21);
+            this.textBox7.TabIndex = 1;
             // 
-            // DryCheck
+            // textBox6
             // 
-            this.DryCheck.AutoSize = true;
-            this.DryCheck.Location = new System.Drawing.Point(176, 11);
-            this.DryCheck.Name = "DryCheck";
-            this.DryCheck.Size = new System.Drawing.Size(43, 16);
-            this.DryCheck.TabIndex = 101;
-            this.DryCheck.Text = "Dry";
-            this.DryCheck.UseVisualStyleBackColor = true;
-            // 
-            // RefrigCheck
-            // 
-            this.RefrigCheck.AutoSize = true;
-            this.RefrigCheck.Location = new System.Drawing.Point(64, 11);
-            this.RefrigCheck.Name = "RefrigCheck";
-            this.RefrigCheck.Size = new System.Drawing.Size(56, 16);
-            this.RefrigCheck.TabIndex = 101;
-            this.RefrigCheck.Text = "Refrig";
-            this.RefrigCheck.UseVisualStyleBackColor = true;
-            // 
-            // TVCheck
-            // 
-            this.TVCheck.AutoSize = true;
-            this.TVCheck.Location = new System.Drawing.Point(126, 11);
-            this.TVCheck.Name = "TVCheck";
-            this.TVCheck.Size = new System.Drawing.Size(40, 16);
-            this.TVCheck.TabIndex = 101;
-            this.TVCheck.Text = "TV";
-            this.TVCheck.UseVisualStyleBackColor = true;
+            this.textBox6.Location = new System.Drawing.Point(90, 7);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 21);
+            this.textBox6.TabIndex = 0;
             // 
             // START
             // 
@@ -161,13 +131,65 @@
             this.START.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.START.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.START.ForeColor = System.Drawing.Color.White;
-            this.START.Location = new System.Drawing.Point(391, 3);
+            this.START.Location = new System.Drawing.Point(825, 3);
             this.START.Name = "START";
             this.START.Size = new System.Drawing.Size(147, 37);
             this.START.TabIndex = 11;
-            this.START.Text = "START";
+            this.START.Text = "오류값 처리";
             this.START.UseVisualStyleBackColor = false;
             this.START.Click += new System.EventHandler(this.START_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.Box5);
+            this.panel3.Controls.Add(this.Box4);
+            this.panel3.Controls.Add(this.Box3);
+            this.panel3.Controls.Add(this.Box2);
+            this.panel3.Controls.Add(this.Box1);
+            this.panel3.Location = new System.Drawing.Point(411, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(399, 28);
+            this.panel3.TabIndex = 102;
+            // 
+            // Box5
+            // 
+            this.Box5.FormattingEnabled = true;
+            this.Box5.Location = new System.Drawing.Point(326, 3);
+            this.Box5.Name = "Box5";
+            this.Box5.Size = new System.Drawing.Size(72, 20);
+            this.Box5.TabIndex = 0;
+            // 
+            // Box4
+            // 
+            this.Box4.FormattingEnabled = true;
+            this.Box4.Location = new System.Drawing.Point(248, 3);
+            this.Box4.Name = "Box4";
+            this.Box4.Size = new System.Drawing.Size(72, 20);
+            this.Box4.TabIndex = 0;
+            // 
+            // Box3
+            // 
+            this.Box3.FormattingEnabled = true;
+            this.Box3.Location = new System.Drawing.Point(170, 3);
+            this.Box3.Name = "Box3";
+            this.Box3.Size = new System.Drawing.Size(72, 20);
+            this.Box3.TabIndex = 0;
+            // 
+            // Box2
+            // 
+            this.Box2.FormattingEnabled = true;
+            this.Box2.Location = new System.Drawing.Point(87, 3);
+            this.Box2.Name = "Box2";
+            this.Box2.Size = new System.Drawing.Size(78, 20);
+            this.Box2.TabIndex = 0;
+            // 
+            // Box1
+            // 
+            this.Box1.FormattingEnabled = true;
+            this.Box1.Location = new System.Drawing.Point(6, 3);
+            this.Box1.Name = "Box1";
+            this.Box1.Size = new System.Drawing.Size(75, 20);
+            this.Box1.TabIndex = 0;
             // 
             // Closebtn
             // 
@@ -273,22 +295,6 @@
             this.LoadFileText.DragDrop += new System.Windows.Forms.DragEventHandler(this.LoadFileText_DragDrop);
             this.LoadFileText.DragEnter += new System.Windows.Forms.DragEventHandler(this.LoadFileText_DragEnter);
             // 
-            // SaveFile
-            // 
-            this.SaveFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveFile.BackColor = System.Drawing.Color.Teal;
-            this.SaveFile.FlatAppearance.BorderSize = 0;
-            this.SaveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveFile.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.SaveFile.ForeColor = System.Drawing.Color.White;
-            this.SaveFile.Location = new System.Drawing.Point(893, 477);
-            this.SaveFile.Name = "SaveFile";
-            this.SaveFile.Size = new System.Drawing.Size(114, 49);
-            this.SaveFile.TabIndex = 87;
-            this.SaveFile.Text = "Info Export";
-            this.SaveFile.UseVisualStyleBackColor = false;
-            this.SaveFile.Click += new System.EventHandler(this.SaveFile_Click);
-            // 
             // OpenLoad
             // 
             this.OpenLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -305,97 +311,32 @@
             this.OpenLoad.UseVisualStyleBackColor = false;
             this.OpenLoad.Click += new System.EventHandler(this.OpenLoad_Click);
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(755, 478);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 49);
-            this.button1.TabIndex = 98;
-            this.button1.Text = "Data Export";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // chart1
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.chart1.Legends.Add(legend5);
-            this.chart1.Location = new System.Drawing.Point(26, 219);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(26, 190);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(484, 243);
+            this.chart1.Size = new System.Drawing.Size(484, 254);
             this.chart1.TabIndex = 99;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            this.chart1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseClick);
+            this.chart1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseMove);
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(910, 153);
+            this.comboBox1.Location = new System.Drawing.Point(908, 164);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(96, 20);
             this.comboBox1.TabIndex = 100;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.Box5);
-            this.panel3.Controls.Add(this.Box4);
-            this.panel3.Controls.Add(this.Box3);
-            this.panel3.Controls.Add(this.Box2);
-            this.panel3.Controls.Add(this.Box1);
-            this.panel3.Location = new System.Drawing.Point(175, 145);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(399, 28);
-            this.panel3.TabIndex = 102;
-            // 
-            // Box5
-            // 
-            this.Box5.FormattingEnabled = true;
-            this.Box5.Location = new System.Drawing.Point(326, 3);
-            this.Box5.Name = "Box5";
-            this.Box5.Size = new System.Drawing.Size(72, 20);
-            this.Box5.TabIndex = 0;
-            // 
-            // Box4
-            // 
-            this.Box4.FormattingEnabled = true;
-            this.Box4.Location = new System.Drawing.Point(248, 3);
-            this.Box4.Name = "Box4";
-            this.Box4.Size = new System.Drawing.Size(72, 20);
-            this.Box4.TabIndex = 0;
-            this.Box4.SelectedIndexChanged += new System.EventHandler(this.Box4_SelectedIndexChanged);
-            // 
-            // Box3
-            // 
-            this.Box3.FormattingEnabled = true;
-            this.Box3.Location = new System.Drawing.Point(170, 3);
-            this.Box3.Name = "Box3";
-            this.Box3.Size = new System.Drawing.Size(72, 20);
-            this.Box3.TabIndex = 0;
-            this.Box3.SelectedIndexChanged += new System.EventHandler(this.Box3_SelectedIndexChanged);
-            // 
-            // Box2
-            // 
-            this.Box2.FormattingEnabled = true;
-            this.Box2.Location = new System.Drawing.Point(87, 3);
-            this.Box2.Name = "Box2";
-            this.Box2.Size = new System.Drawing.Size(78, 20);
-            this.Box2.TabIndex = 0;
-            this.Box2.SelectedIndexChanged += new System.EventHandler(this.Box2_SelectedIndexChanged);
-            // 
-            // Box1
-            // 
-            this.Box1.FormattingEnabled = true;
-            this.Box1.Location = new System.Drawing.Point(6, 3);
-            this.Box1.Name = "Box1";
-            this.Box1.Size = new System.Drawing.Size(75, 20);
-            this.Box1.TabIndex = 0;
-            this.Box1.SelectedIndexChanged += new System.EventHandler(this.Box1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -415,15 +356,6 @@
             this.label2.TabIndex = 105;
             this.label2.Text = "종료 시간";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(26, 161);
-            this.textBox1.Mask = "00:00:00";
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ResetOnSpace = false;
-            this.textBox1.Size = new System.Drawing.Size(64, 21);
-            this.textBox1.TabIndex = 106;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(96, 161);
@@ -435,7 +367,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(158, 478);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(166, 450);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 49);
             this.button2.TabIndex = 107;
@@ -445,15 +378,17 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(97, 478);
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textBox3.Location = new System.Drawing.Point(105, 450);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(54, 21);
             this.textBox3.TabIndex = 108;
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 481);
+            this.label3.Location = new System.Drawing.Point(52, 453);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 12);
             this.label3.TabIndex = 109;
@@ -464,57 +399,65 @@
             this.chart2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea6.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.chart2.Legends.Add(legend6);
-            this.chart2.Location = new System.Drawing.Point(523, 188);
+            chartArea4.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chart2.Legends.Add(legend4);
+            this.chart2.Location = new System.Drawing.Point(521, 190);
             this.chart2.Name = "chart2";
-            this.chart2.Size = new System.Drawing.Size(484, 274);
+            this.chart2.Size = new System.Drawing.Size(484, 254);
             this.chart2.TabIndex = 99;
             this.chart2.Text = "chart1";
             this.chart2.Click += new System.EventHandler(this.chart1_Click);
+            this.chart2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.chart2_MouseClick);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(51, 188);
+            this.textBox4.Location = new System.Drawing.Point(185, 161);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 110;
+            this.textBox4.TabIndex = 0;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(158, 188);
+            this.textBox5.Location = new System.Drawing.Point(292, 161);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 21);
-            this.textBox5.TabIndex = 110;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(0, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 111;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.textBox5.TabIndex = 1;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(276, 188);
+            this.button4.Location = new System.Drawing.Point(409, 161);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 112;
+            this.button4.TabIndex = 2;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(26, 161);
+            this.textBox1.Mask = "00:00:00";
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ResetOnSpace = false;
+            this.textBox1.Size = new System.Drawing.Size(64, 21);
+            this.textBox1.TabIndex = 106;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(3, 9);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(80, 20);
+            this.comboBox2.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1036, 551);
+            this.ClientSize = new System.Drawing.Size(1036, 511);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.comboBox1);
@@ -525,28 +468,25 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.chart2);
             this.Controls.Add(this.chart1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LoadFileText);
-            this.Controls.Add(this.SaveFile);
             this.Controls.Add(this.OpenLoad);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.panel12.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -565,16 +505,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox LoadFileText;
-        private System.Windows.Forms.Button SaveFile;
         private System.Windows.Forms.Button OpenLoad;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.CheckBox AirCheck;
-        private System.Windows.Forms.CheckBox RefrigCheck;
-        private System.Windows.Forms.CheckBox TVCheck;
-        private System.Windows.Forms.CheckBox DryCheck;
-        private System.Windows.Forms.CheckBox VacuumCheck;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox Box5;
         private System.Windows.Forms.ComboBox Box4;
@@ -583,7 +516,6 @@
         private System.Windows.Forms.ComboBox Box1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox textBox1;
         private System.Windows.Forms.MaskedTextBox textBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox3;
@@ -591,8 +523,12 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.MaskedTextBox textBox1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 

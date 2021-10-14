@@ -29,3 +29,7 @@ D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.csproj.CoreCompileInpu
 D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.exe
 D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.pdb
 D:\Project2\src\OpenLab_Label\TestCode\obj\Debug\TestCode.csproj.Fody.CopyLocal.cache
+E:\Sinyoung\OpenLab_Converter\soc\Testcode\TestCode\obj\Debug\TestCode.csproj.Fody.CopyLocal.cache
+E:\Sinyoung\OpenLab_Converter\soc\Testcode\TestCode\bin\Debug\Microsoft.WindowsAPICodePack.xml
+E:\Sinyoung\OpenLab_Converter\soc\Testcode\TestCode\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+E:\Sinyoung\OpenLab_Converter\soc\Testcode\TestCode\obj\Debug\TestCode.csproj.CopyComplete

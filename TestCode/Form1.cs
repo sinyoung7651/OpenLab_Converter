@@ -10,10 +10,13 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms.DataVisualization.Charting;
+using Microsoft.WindowsAPICodePack.Dialogs;
 namespace TestCode
 {
     public partial class Form1 : Form
     {
+        DataClass[] data;
+        FileClass FC = new FileClass();
         public string ReadFile { get; private set; }
 
         public string FileRead { get; private set; }
@@ -26,8 +29,7 @@ namespace TestCode
         }
         public string[] ChartType { get; set; }
         public string[] ChoiceType { get; set; }
-
-        Axis ax,ay;
+       
         private void Form1_Load(object sender, EventArgs e)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -35,7 +37,7 @@ namespace TestCode
 
             ChartType = new string[] { "Point", "FastPoint", "Line", "StepLine", "FastLine", "Bar", "StackedBar", "Column", "StackedColumn", "Area", "Stock", "Candlestick", "Range", "SplineRange", "RangeBar", "RangeColumn" };
 
-            ChoiceType = new string[] { "Air", "Refrig", "TV", "Dry", "Vacuum" };
+            ChoiceType = new string[] { "air", "refrig", "tv", "dry", "vacuum" };
 
             Box1.Items.AddRange(ChoiceType);
             Box2.Items.AddRange(ChoiceType);
@@ -45,13 +47,12 @@ namespace TestCode
             chart1.Series.Add("IE2");
             chart2.Series.Add("PE2");
             comboBox1.Items.AddRange(ChartType);
-
+            comboBox2.Items.AddRange(ChoiceType);
             comboBox1.SelectedIndex = 2;
 
-            ax = chart1.ChartAreas[0].AxisX;
-            ay = chart1.ChartAreas[0].AxisY;
-            
-
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
+            chart1.MouseWheel += chart1_MouseWheel;
         }
         private void ChoiceChart()
         {
@@ -128,15 +129,12 @@ namespace TestCode
         private void OpenLoad_Click(object sender, EventArgs e)
         {
             FileRead = ReadCSVFile();
+            
             LoadFileText.Text = FileRead;
 
+
         }
 
-        private void SaveFile_Click(object sender, EventArgs e)
-        {
-            string FolderWrite = WriteCSVFolder();
-            InfoExport(FolderWrite);
-        }
         public string ReadCSVFile()
         {
             LoadFileDialog.Title = "csv 파일 선택";
@@ -156,28 +154,6 @@ namespace TestCode
             }
             
         }
-        public string WriteCSVFolder()
-        {
-            SaveFileDialog sfd = new SaveFileDialog();
-            sfd.Filter = "csv 파일(*.csv) | *.csv; | 모든파일(*.*)| *.*";
-            sfd.OverwritePrompt = true;
-
-            if (sfd.ShowDialog() == DialogResult.OK)
-            {
-                string FolderWriteName = sfd.FileName;
-                
-                return FolderWriteName;
-
-                
-            }
-            else
-            {
-                return "";
-            }
-            
-
-        }
-
         private void LoadFileText_DragDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -237,37 +213,6 @@ namespace TestCode
             this.Close();
         }
 
-        private void FirstText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsDigit(e.KeyChar)) && e.KeyChar != '.' && e.KeyChar != 8)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void ReadNum_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void PlusText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsDigit(e.KeyChar)) && e.KeyChar != '.' && e.KeyChar != 8)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void MinusText_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsDigit(e.KeyChar)) && e.KeyChar != '.' && e.KeyChar != 8)
-            {
-                e.Handled = true;
-            }
-        }
 
         private void panel9_MouseMove(object sender, MouseEventArgs e)
         {
@@ -306,395 +251,96 @@ namespace TestCode
         {
             Run();
         }
-        DataClass[] data;
-        FileClass FC = new FileClass();
-        private void Test()
-        {
-            //if (AirCheck.Checked)
-            //{
-            //    if (RefrigCheck.Checked)
-            //    {                   
-            //        if (TVCheck.Checked)
-            //        {
-            //            if(DryCheck.Checked)
-            //            {                            
-            //                if(VacuumCheck.Checked)
-            //                {
-            //                    FC.Choice = ChoiceBtn.AirRefrigTvDryVaccum;
-            //                }else
-            //                {
-            //                    FC.Choice = ChoiceBtn.AirRefrigTvDry;
-            //                }
-            //            }
-            //            else if(VacuumCheck.Checked)
-            //            {
-            //                FC.Choice = ChoiceBtn.AirRefrigTvVaccum;
-            //            }
-            //            else
-            //            {
-            //                FC.Choice = ChoiceBtn.AirRefrigTv;
-            //            }
-            //        }else if(DryCheck.Checked)
-            //        {
-                        
-            //            if(VacuumCheck.Checked)
-            //            {
-            //                FC.Choice = ChoiceBtn.AirRefrigDryVaccum;
-            //            }else
-            //            {
-            //                FC.Choice = ChoiceBtn.AirRefrigDry;
-            //            }
-            //        }else if(VacuumCheck.Checked)
-            //        {
-            //            FC.Choice = ChoiceBtn.AirRefrigVaccum;
-            //        }else
-            //        {
-            //            FC.Choice = ChoiceBtn.AirRefrig;
-            //        }
-            //    }
-            //    else if(TVCheck.Checked)
-            //    {
-            //        if (DryCheck.Checked)
-            //        {
-            //            if (VacuumCheck.Checked)
-            //            {
-            //                FC.Choice = ChoiceBtn.AirTVDryVacuum;
-            //            }
-            //            else
-            //            {
-            //                FC.Choice = ChoiceBtn.AirTVDry;
-            //            }
-            //        }
-            //        else if (VacuumCheck.Checked)
-            //        {
-            //            FC.Choice = ChoiceBtn.AirTvVaccuum;
-            //        }
-            //        else
-            //        {
-            //            FC.Choice = ChoiceBtn.AirTv;
-            //        }
-            //    }
-            //    else if(DryCheck.Checked)
-            //    {
-            //        if (VacuumCheck.Checked)
-            //        {
-            //            FC.Choice = ChoiceBtn.AirDryVaccum;
-            //        }
-            //        else
-            //        {
-            //            FC.Choice = ChoiceBtn.AirDry;
-            //        }
-            //    }
-            //    else if(VacuumCheck.Checked)
-            //    {
-            //        FC.Choice = ChoiceBtn.AirVaccum;
-            //    }else
-            //    {
-            //        FC.Choice = ChoiceBtn.AIR;
-            //    }
-            //}else if(RefrigCheck.Checked)
-            //{
-            //    if(TVCheck.Checked)
-            //    {
-            //        if(DryCheck.Checked)
-            //        {
-            //            if(VacuumCheck.Checked)
-            //            {
-            //                FC.Choice = ChoiceBtn.RefrigTvDryVaccum;
-            //            }
-            //            else
-            //            {
-            //                FC.Choice = ChoiceBtn.RefrigTvDry;
-            //            }
-            //        }
-            //        else if(VacuumCheck.Checked)
-            //        {
-            //            FC.Choice = ChoiceBtn.RefirgTvVaccum;
-            //        }
-            //        else
-            //        {
-            //            FC.Choice = ChoiceBtn.RefrigDry;
-            //        }
-            //    }else if(DryCheck.Checked)
-            //    {
-            //        if(VacuumCheck.Checked)
-            //        {
-            //            FC.Choice = ChoiceBtn.RefrigDryVaccum;
-            //        }
-            //        else
-            //        {
-            //            FC.Choice = ChoiceBtn.RefrigDry;
-            //        }
 
-            //    }else if(VacuumCheck.Checked)
-            //    {
-            //        FC.Choice = ChoiceBtn.RefrigVaccum;
-            //    }
-            //    else
-            //    {
-            //        FC.Choice = ChoiceBtn.REFRIG;
-            //    }
-                
-            //}else if (TVCheck.Checked)
-            //{
-            //    if(DryCheck.Checked)
-            //    {
-            //        if(VacuumCheck.Checked)
-            //        {
-            //            FC.Choice = ChoiceBtn.TvDryVaccum;
-            //        }
-            //        else
-            //        {
-            //            FC.Choice = ChoiceBtn.TvDry;
-            //        }
-            //    }else if(VacuumCheck.Checked)
-            //    {
-            //        FC.Choice = ChoiceBtn.TvVaccum;
-            //    }
-            //    else
-            //    {
-            //        FC.Choice = ChoiceBtn.TV;
-            //    }
-            //}else if (DryCheck.Checked)
-            //{
-            //    if (VacuumCheck.Checked)
-            //    {
-            //        FC.Choice = ChoiceBtn.DryVaccum;
-            //    }
-            //    else
-            //    {
-            //        FC.Choice = ChoiceBtn.DRY;
-            //    }
-
-            //}else
-            //{
-            //    FC.Choice = ChoiceBtn.VACUUM;
-            //}
-
-        }
-        //private void TestComboBox()
-        //{
-        //    if (Box1.Text =="air")
-        //    {
-        //        if (Box2.Text =="refrig")
-        //        {
-        //            if (Box3.Text =="tv")
-        //            {
-        //                if (Box4.Text == "dry")
-        //                {
-        //                    if (Box5.Text == "vaccum")
-        //                    {
-        //                        FC.Choice = ChoiceBtn.AirRefrigTVDryVaccum;
-        //                    }
-        //                    else
-        //                    {
-        //                        FC.Choice = ChoiceBtn.AirRefrigTvDry;
-        //                    }
-        //                }
-        //                else if (box4.text == "vacuum")
-        //                {
-        //                    fc.choice = choicebtn.airrefrigtvvaccum;
-        //                }
-        //                else 
-        //                {
-        //                    fc.choice = choicebtn.airrefrigtv;
-        //                }
-        //            }
-        //            else if (box3.text =="dry")
-        //            {
-        //                if (vacuumcheck.checked)
-        //                {
-        //                    fc.choice = choicebtn.airrefrigdryvaccum;
-        //                }
-        //                else
-        //                {
-        //                    fc.choice = choicebtn.airrefrigdry;
-        //                }
-        //            }
-        //            else if (box3.text == "vacuum")
-        //            {
-        //                fc.choice = choicebtn.airrefrigvaccum;
-        //            }
-        //            else
-        //            {
-        //                fc.choice = choicebtn.airrefrig;
-        //            }
-        //        }
-        //        else if (box2.text=="tv")
-        //        {
-        //            if (drycheck.checked)
-        //            {
-        //                if (vacuumcheck.checked)
-        //                {
-        //                    fc.choice = choicebtn.airtvdryvacuum;
-        //                }
-        //                else
-        //                {
-        //                    fc.choice = choicebtn.airtvdry;
-        //                }
-        //            }
-        //            else if (vacuumcheck.checked)
-        //            {
-        //                fc.choice = choicebtn.airtvvaccuum;
-        //            }
-        //            else
-        //            {
-        //                fc.choice = choicebtn.airtv;
-        //            }
-        //        }
-        //        else if (box2.text=="dry")
-        //        {
-        //            if (vacuumcheck.checked)
-        //            {
-        //                fc.choice = choicebtn.airdryvaccum;
-        //            }
-        //            else
-        //            {
-        //                fc.choice = choicebtn.airdry;
-        //            }
-        //        }
-        //        else if (box2.text =="vacuum")
-        //        {
-        //            fc.choice = choicebtn.airvaccum;
-        //        }
-        //        else
-        //        {
-        //            fc.choice = choicebtn.air;
-        //        }
-        //    }
-        //    else if (refrigcheck.checked)
-        //    {
-        //        if (tvcheck.checked)
-        //        {
-        //            if (drycheck.checked)
-        //            {
-        //                if (vacuumcheck.checked)
-        //                {
-        //                    fc.choice = choicebtn.refrigtvdryvaccum;
-        //                }
-        //                else
-        //                {
-        //                    fc.choice = choicebtn.refrigtvdry;
-        //                }
-        //            }
-        //            else if (vacuumcheck.checked)
-        //            {
-        //                fc.choice = choicebtn.refirgtvvaccum;
-        //            }
-        //            else
-        //            {
-        //                fc.choice = choicebtn.refrigdry;
-        //            }
-        //        }
-        //        else if (drycheck.checked)
-        //        {
-        //            if (vacuumcheck.checked)
-        //            {
-        //                fc.choice = choicebtn.refrigdryvaccum;
-        //            }
-        //            else
-        //            {
-        //                fc.choice = choicebtn.refrigdry;
-        //            }
-
-        //        }
-        //        else if (vacuumcheck.checked)
-        //        {
-        //            fc.choice = choicebtn.refrigvaccum;
-        //        }
-        //        else
-        //        {
-        //            fc.choice = choicebtn.refrig;
-        //        }
-
-        //    }
-        //    else if (tvcheck.checked)
-        //    {
-        //        if (drycheck.checked)
-        //        {
-        //            if (vacuumcheck.checked)
-        //            {
-        //                fc.choice = choicebtn.tvdryvaccum;
-        //            }
-        //            else
-        //            {
-        //                fc.choice = choicebtn.tvdry;
-        //            }
-        //        }
-        //        else if (vacuumcheck.checked)
-        //        {
-        //            fc.choice = choicebtn.tvvaccum;
-        //        }
-        //        else
-        //        {
-        //            fc.choice = choicebtn.tv;
-        //        }
-        //    }
-        //    else if (drycheck.checked)
-        //    {
-        //        if (vacuumcheck.checked)
-        //        {
-        //            fc.choice = choicebtn.dryvaccum;
-        //        }
-        //        else
-        //        {
-        //            fc.choice = choicebtn.dry;
-        //        }
-
-        //    }
-        //    else
-        //    {
-        //        fc.choice = choicebtn.vacuum;
-        //    }
-
-        //}
+       
         private void Run()
         {
-            if (AirCheck.Checked)
+            if (Box1.Text == "air")
             {
                 FC.Choice = ChoiceBtn.AIR;
             }
-            else if (TVCheck.Checked)
+            else if (Box1.Text == "tv")
             {
-                FC.Choice = ChoiceBtn.TV;
+                if (Box2.Text == "vacuum")
+                {
+                    FC.Choice = ChoiceBtn.TVVaccum;
+                    ThingText = "tv+vacuum";
+                }
+                else
+                {
+                    FC.Choice = ChoiceBtn.TV;
+                }
             }
-            else if (VacuumCheck.Checked)
+            else if (Box1.Text == "vacuum")
             {
                 FC.Choice = ChoiceBtn.VACUUM;
             }
-            else if (RefrigCheck.Checked)
+            else if (Box1.Text == "refrig")
             {
-                FC.Choice = ChoiceBtn.REFRIG;
+                if (Box2.Text == "vacuum")
+                {
+                    FC.Choice = ChoiceBtn.RefrigVaccum;
+                    ThingText = "refrig+vacuum";
+                }
+                else if (Box2.Text == "tv")
+                {
+                    FC.Choice = ChoiceBtn.RefrigTv;
+                    ThingText = "refrig+tv";
+                }
+                else
+                {
+                    FC.Choice = ChoiceBtn.REFRIG;
+                }
             }
-            else if (DryCheck.Checked)
+            else if (Box1.Text == "dry")
             {
-                FC.Choice = ChoiceBtn.DRY;
+                if (Box2.Text == "tv")
+                {
+                    FC.Choice = ChoiceBtn.DryTV;
+                    ThingText = "dry+tv";
+                }
+                else if (Box2.Text == "refrig")
+                {
+                    FC.Choice = ChoiceBtn.DryRefrig;
+                    ThingText = "dry+refrig";
+                }
+                else if (Box2.Text == "vacuum")
+                {
+                    FC.Choice = ChoiceBtn.DryVaccum;
+                    ThingText = "dry+vacuum";
+                }
+                else
+                {
+                    FC.Choice = ChoiceBtn.DRY;
+                    ThingText = "dry";
+                }
             }
-            data = FC.ReadFile(FileRead,textBox1.Text,textBox2.Text);
+            else
+            {
 
-            //foreach (var a in data)
-            //{
-            //    DataLogText.AppendText(a.Number + "\t" + a.Date + "\t" + a.Time + "\t" + a.UE2 + "\t" + a.IE2 + "\t" + a.PE2 + "\t" + a.SE2 + "\t" + a.QE2 + "\t" + a.PFE2 + "\t" + a.DEGE2 + "\t" + a.FUE2 + "\t" + a.FIE2 + "\t" + a.UPlustpkE2 + "\t" + a.UMinuspkE2 + "\t" +a.UMinuspkE2 + "\t" + a.UMinuspkE2);
-            //}
-            MadeChart(data);                       
+            }
+            data = FC.ReadFile(FileRead);
+            MadeChart(data);   
+            
         }
         private void MadeChart(DataClass[] data)
         {
-            //chart1.Series["Data"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             ChoiceChart();
+            
             chart1.Series["IE2"].Points.Clear();
             chart2.Series["PE2"].Points.Clear();
-            //chart1.Series.Add("PE2");
+            string trima;
             foreach (var a in data)
             {
-                
+                trima = a.Time.Trim();
                 if (double.TryParse(a.IE2, out double doubleI))
                 {
-                    chart1.Series["IE2"].Points.AddXY(a.Time,doubleI);
+                    chart1.Series["IE2"].Points.AddXY(a.Time, doubleI);
                 }
                 else
                 {
                     chart1.Series["IE2"].Points.AddXY(a.Time, 0);
+
                 }
                 if (double.TryParse(a.PE2, out double doubleP))
                 {
@@ -705,23 +351,6 @@ namespace TestCode
                     chart2.Series["PE2"].Points.AddXY(a.Time, 0);
                 }
             }
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var sfd = new SaveFileDialog();
-            sfd.Filter = "csv 파일(*.csv) | *.csv; | 모든파일(*.*)| *.*";
-            sfd.OverwritePrompt = true;
-
-            if (sfd.ShowDialog() != DialogResult.OK)
-                return;
-            if(MessageBox.Show("저장합니다","저장",MessageBoxButtons.YesNo)== DialogResult.Yes)
-            {
-                Export(sfd.FileName);
-            }else
-            {
-
-            }
-            
         }
         private void Export(string filepath)
         {
@@ -741,149 +370,10 @@ namespace TestCode
             }
         }
 
-        private void Box1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(Box1.Text=="Air")
-            {
-                Box2.Items.Remove("Air");
-                Box3.Items.Remove("Air");
-                Box4.Items.Remove("Air");
-                Box5.Items.Remove("Air");
-            }else if(Box1.Text=="Refrig")
-            {
-                Box2.Items.Remove("Refrig");
-                Box3.Items.Remove("Refrig");
-                Box4.Items.Remove("Refrig");
-                Box5.Items.Remove("Refrig");
-            }else if(Box1.Text=="TV")
-            {
-                Box2.Items.Remove("TV");
-                Box3.Items.Remove("TV");
-                Box4.Items.Remove("TV");
-                Box5.Items.Remove("TV");
-            }else if(Box1.Text=="Dry")
-            {
-                Box2.Items.Remove("Dry");
-                Box3.Items.Remove("Dry");
-                Box4.Items.Remove("Dry");
-                Box5.Items.Remove("Dry");
-            }else if(Box1.Text=="Vacuum")
-            {
-                Box2.Items.Remove("Vacuum");
-                Box3.Items.Remove("Vacuum");
-                Box4.Items.Remove("Vacuum");
-                Box5.Items.Remove("Vacuum");
-            }
-        }
-
-        private void Box2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Box2.Text == "Air")
-            {
-                Box3.Items.Remove("Air");
-                Box4.Items.Remove("Air");
-                Box5.Items.Remove("Air");
-            }
-            else if (Box2.Text == "Refrig")
-            {
-                Box3.Items.Remove("Refrig");
-                Box4.Items.Remove("Refrig");
-                Box5.Items.Remove("Refrig");
-            }
-            else if (Box2.Text == "TV")
-            {
-                Box3.Items.Remove("TV");
-                Box4.Items.Remove("TV");
-                Box5.Items.Remove("TV");
-            }
-            else if (Box2.Text == "Dry")
-            {
-                Box3.Items.Remove("Dry");
-                Box4.Items.Remove("Dry");
-                Box5.Items.Remove("Dry");
-            }
-            else if (Box2.Text == "Vacuum")
-            {
-                Box3.Items.Remove("Vacuum");
-                Box4.Items.Remove("Vacuum");
-                Box5.Items.Remove("Vacuum");
-            }
-        }
-
-        private void Box3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Box3.Text == "Air")
-            {
-                Box4.Items.Remove("Air");
-                Box5.Items.Remove("Air");
-            }
-            else if (Box3.Text == "Refrig")
-            {
-                Box4.Items.Remove("Refrig");
-                Box5.Items.Remove("Refrig");
-            }
-            else if (Box3.Text == "TV")
-            {
-                Box4.Items.Remove("TV");
-                Box5.Items.Remove("TV");
-            }
-            else if (Box3.Text == "Dry")
-            {
-                Box4.Items.Remove("Dry");
-                Box5.Items.Remove("Dry");
-            }
-            else if (Box3.Text == "Vacuum")
-            {
-                Box4.Items.Remove("Vacuum");
-                Box5.Items.Remove("Vacuum");
-            }
-        }
-
-        private void Box4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Box4.Text == "Air")
-            {
-                Box5.Items.Remove("Air");
-            }
-            else if (Box4.Text == "Refrig")
-            {
-                Box5.Items.Remove("Refrig");
-            }
-            else if (Box4.Text == "TV")
-            {
-                Box5.Items.Remove("TV");
-            }
-            else if (Box4.Text == "Dry")
-            {
-                Box5.Items.Remove("Dry");
-            }
-            else if (Box4.Text == "Vacuum")
-            {
-                Box5.Items.Remove("Vacuum");
-            }
-        }
-
-        private void IE2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (data != null)
-            {
-                MadeChart(data);
-            }
-        }
-
-        private void PE2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (data != null)
-            {
-                MadeChart(data);
-            }
-        }
-
         private void panel9_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void panel9_MouseDown(object sender, MouseEventArgs e)
         {
                 mousePoint = new Point(e.X, e.Y);
@@ -891,7 +381,6 @@ namespace TestCode
 
         private void chart1_Click(object sender, EventArgs e)
         {
-
         }
         string ThingText;
         private void button2_Click(object sender, EventArgs e)
@@ -902,29 +391,36 @@ namespace TestCode
             //sfd.FileName = ""
             //if (sfd.ShowDialog() != DialogResult.OK)
             //    return;
-
-            var fvd = new FolderBrowserDialog();
-            if (fvd.ShowDialog() != DialogResult.OK)
+            CommonOpenFileDialog fvd = new CommonOpenFileDialog(); 
+            fvd.IsFolderPicker = true;
+            if (fvd.ShowDialog() != CommonFileDialogResult.Ok)
+            {
                 return;
+            }
 
-            string datetime = DateTime.Now.ToString("yymmdd");
-            
-            if (AirCheck.Checked)
-                ThingText = "air";
-            else if (RefrigCheck.Checked)
-                ThingText = "refrig";
-            else if (TVCheck.Checked)
-                ThingText = "tv";
-            else if (DryCheck.Checked)
-                ThingText = "dry";
-            else if (VacuumCheck.Checked)
-                ThingText = "vacuum";
+
+            string datetime = DateTime.Now.ToString("yyMMdd");
+            string NumText;
+
+
+
+            if (textBox3.Text == "1")
+            {
+                NumText = textBox3.Text + "st";
+            }
+            else if(textBox3.Text=="2")
+            {
+                NumText = textBox3.Text + "nd";
+            }
+            else if(textBox3.Text =="3")
+            {
+                NumText = textBox3.Text + "rd";
+            }
             else
-                ThingText = "0";
-            string NumText = textBox3.Text + "th";
+                NumText= textBox3.Text + "th";
             string csv = ".csv";
 
-            string Nametest = fvd.SelectedPath + "\\" + datetime + "_grida_" + ThingText + "_" + NumText;
+            string Nametest = fvd.FileName + "\\" + datetime + "_grida_" + ThingText + "_" + NumText;
             string Name1 = Nametest + csv;
             string Name2 = Nametest + "_info"+csv;
             if (MessageBox.Show("저장합니다", "저장", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -938,22 +434,179 @@ namespace TestCode
             }
         }
 
+
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FC.Labeling(data,comboBox2.Text, startnum, stopnum);
+            MessageBox.Show("라벨링 ㄴ완료");
+        }
+        string startnum, stopnum;
+        private void chart1_MouseClick(object sender, MouseEventArgs e)
+        {
+            EventMouseClick(chart1, e);
+        }
+        //Point? prevPosition = null;
+        //ToolTip tooltip = new ToolTip();
+        private void chart1_MouseMove(object sender, MouseEventArgs e)
+        {
+            //var pos = e.Location;
+            //if (prevPosition.HasValue && pos == prevPosition.Value)
+            //    return;
+            //tooltip.RemoveAll();
+            //prevPosition = pos;
+            //var results = chart1.HitTest(pos.X, pos.Y, false,
+            //                             ChartElementType.PlottingArea);
+            //foreach (var result in results)
+            //{
+            //    if (result.ChartElementType == ChartElementType.PlottingArea)
+            //    {
+            //        var xVal = result.ChartArea.AxisX.PixelPositionToValue(pos.X);
+            //        var yVal = result.ChartArea.AxisY.PixelPositionToValue(pos.Y);
+
+            //        tooltip.Show("X=" + xVal + ", Y=" + yVal, this.chart1,
+            //                     pos.X, pos.Y - 15);
+            //    }
+            //}
+        }
+        double time1;
+        double time2;
         private void button4_Click(object sender, EventArgs e)
         {
-            
+
+
+            foreach (var a in data)
+            {
+                if(textBox4.Text==a.Time)
+                {
+                    //time1 = DateTime.Parse(a.Time).ToOADate();
+                    time1 = double.Parse(a.Number);
+                }
+                if (textBox5.Text == a.Time)
+                {
+                    //time2 = DateTime.Parse(a.Time).ToOADate();
+                    time2 = double.Parse(a.Number);
+                }
+
+            }
             //ax.ScaleView.Zoom(double.Parse(textBox4.Text), double.Parse(textBox5.Text));
 
             chart1.Series["IE2"].XValueType = ChartValueType.DateTime;
+            chart2.Series["PE2"].XValueType = ChartValueType.DateTime;
+            //chart1.ChartAreas[0].AxisX.LabelStyle.Format = "HH:mm:ss";
+            //chart1.ChartAreas[0].AxisX.
+
+            //DateTime mindt = DateTime.Parse(textBox4.Text);
+            //DateTime maxdt = DateTime.Parse(textBox5.Text);
+            ////DateTime maxdt = DateTime.ParseExact(textBox5.Text, timeformat, null);
+            ////chart1.ChartAreas[0].AxisX.Interval = 1;
+            //chart1.ChartAreas[0].AxisX.Minimum = mindt.ToOADate();
+            //chart1.ChartAreas[0].AxisX.Maximum = maxdt.ToOADate();
+
+            //chart1.ChartAreas[0].AxisX.Minimum = DateTime.Parse(time1).ToOADate();
+            //chart1.ChartAreas[0].AxisX.Maximum = DateTime.Parse(time2).ToOADate();
             chart1.ChartAreas[0].AxisX.LabelStyle.Format = "hh:mm:ss";
+            chart2.ChartAreas[0].AxisX.LabelStyle.Format = "hh:mm:ss";
+            //chart1.ChartAreas[0].AxisX.Minimum = time1;
+            //chart1.ChartAreas[0].AxisX.Maximum = time2;
+            chart1.ChartAreas[0].AxisX.ScaleView.Zoom(time1, time2);
+            chart2.ChartAreas[0].AxisX.ScaleView.Zoom(time1, time2);
 
-            string timeformat = "hh:mm:ss";
-            DateTime mindt = DateTime.Parse(textBox4.Text);
-            DateTime maxdt = DateTime.Parse(textBox5.Text);
-            //DateTime maxdt = DateTime.ParseExact(textBox5.Text, timeformat, null);
-            chart1.ChartAreas[0].AxisX.Interval = 1;
-            chart1.ChartAreas[0].AxisX.Minimum = mindt.ToOADate();
-            chart1.ChartAreas[0].AxisX.Minimum = maxdt.ToOADate();
 
+
+        }
+        int count = 0;
+        public void EventMouseClick(Chart chart, MouseEventArgs e)
+        {
+            try
+            {
+                int a, b;
+                
+                a = (int)chart.ChartAreas[0].AxisX.PixelPositionToValue(e.X);
+                b = (int)chart.ChartAreas[0].AxisY.PixelPositionToValue(e.Y);
+
+
+                foreach (var d in data)
+                {
+                    if (a.ToString() == d.Number.Trim())
+                    {
+                        if (count == 0)
+                        {
+                            if (MessageBox.Show("시작 시간 " + d.Time +
+                                                "\r\n전류 " + d.IE2 + "전력 " + d.PE2 + "가 맞으십니까", "선택", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                textBox6.Text = d.Time;
+                                startnum = d.Number;
+                                count++;
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("종료 시간 " + a.ToString() + "가 맞으십니까", "선택", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                textBox7.Text = d.Time;
+                                stopnum = d.Number;
+                                count = 0;
+                                break;
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch
+            {
+
+            }
+        }
+        private void chart2_MouseClick(object sender, MouseEventArgs e)
+        {
+            EventMouseClick(chart2, e);
+        }
+
+        private void chart1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            var chart = (Chart)sender;
+            var xAxis = chart.ChartAreas[0].AxisX;
+            var yAxis = chart.ChartAreas[0].AxisY;
+
+
+            var xMin = xAxis.ScaleView.ViewMinimum;
+            var xMax = xAxis.ScaleView.ViewMaximum;
+            var yMin = yAxis.ScaleView.ViewMinimum;
+            var yMax = yAxis.ScaleView.ViewMaximum;
+            try
+            {
+                if (e.Delta < 0) // Scrolled down.
+                {
+                    xAxis.ScaleView.ZoomReset();
+                    yAxis.ScaleView.ZoomReset();
+                }
+                else if (e.Delta > 0) // Scrolled up.
+                {
+
+
+                    var posXStart = xAxis.PixelPositionToValue(e.Location.X) - (xMax - xMin) / 2;
+                    var posXFinish = xAxis.PixelPositionToValue(e.Location.X) + (xMax - xMin) / 2;
+                    var posYStart = yAxis.PixelPositionToValue(e.Location.Y) - (yMax - yMin) / 2;
+                    var posYFinish = yAxis.PixelPositionToValue(e.Location.Y) + (yMax - yMin) / 2;
+
+                    xAxis.ScaleView.Zoom(posXStart, posXFinish);
+                    yAxis.ScaleView.Zoom(posYStart, posYFinish);
+                }
+            }
+            catch { }
         }
     }
 }
